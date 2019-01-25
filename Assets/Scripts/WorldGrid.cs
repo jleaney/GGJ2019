@@ -27,9 +27,12 @@ public class WorldGrid : MonoBehaviour
 		}
 	}
 
-	public static Vector3 SnapToGrid(Vector3 position)
+	public Vector2 SnapToGrid(Vector3 position)
 	{
-
+		Vector2 snappedPos;
+		snappedPos.x = Mathf.Round(position.x / gridWidth) * gridWidth;
+		snappedPos.y = Mathf.Round(position.z / gridWidth) * gridWidth;
+		return snappedPos;
 	}
 
 	[SerializeField] private float gridWidth = 1;
