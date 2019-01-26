@@ -29,6 +29,7 @@ public class LockController : MonoBehaviour
         if (!hasKey && !GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Fail Unlock"))
         {
             GetComponent<Animator>().SetTrigger("fail unlock");
+            GetComponent<AudioSource>().Play();
         }
     }
 
