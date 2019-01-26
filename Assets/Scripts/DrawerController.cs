@@ -6,29 +6,47 @@ public class DrawerController : MonoBehaviour {
 
     private bool open = false;
 
+    [SerializeField]
+    private bool unlocked = false;
+
+    public bool Unlocked
+    {
+        get
+        {
+            return unlocked;
+        }
+
+        set
+        {
+            unlocked = value;
+        }
+    }
+
     private void Start()
     {
+
     }
 
     private void OnMouseDown()
     {
-        if (!open)
+        if (unlocked)
         {
-            open = true;
-            GetComponent<Animator>().SetTrigger("open");
+            if (!open)
+            {
+                open = true;
+                GetComponent<Animator>().SetTrigger("open");
+            }
+
+            else if (open)
+            {
+                open = false;
+                GetComponent<Animator>().SetTrigger("close");
+            }
         }
 
-        else if (open)
+        else if (!unlocked && !GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Fail Open Drawer"))
         {
-            open = false;
-            GetComponent<Animator>().SetTrigger("close");
+            GetComponent<Animator>().SetTrigger("fail open");
         }
     }
-
-    private void OnMouseExit()
-    {
-        
-        
-    }
-
 }
