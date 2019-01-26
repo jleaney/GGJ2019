@@ -113,6 +113,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &55449719 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114987553269249406, guid: e5f08538f7788794098b9b9d41c0b3ea,
+    type: 2}
+  m_PrefabInternal: {fileID: 484591007}
+  m_Script: {fileID: 11500000, guid: 0a18c15d110ea5441bed4771cc6b67bd, type: 3}
 --- !u!1 &119906104
 GameObject:
   m_ObjectHideFlags: 0
@@ -5096,6 +5102,11 @@ Prefab:
       propertyPath: ShapeModule.m_Position.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114876810653969634, guid: e5f08538f7788794098b9b9d41c0b3ea,
+        type: 2}
+      propertyPath: plant
+      value: 
+      objectReference: {fileID: 55449719}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5f08538f7788794098b9b9d41c0b3ea, type: 2}
   m_IsPrefabAsset: 0

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class Plant : Pickup
 {
@@ -52,13 +53,19 @@ public class Plant : Pickup
 
         SetGrassCombo();
 
-
-
         transform.GetComponentInChildren<ParticleSystem>().Play();
     }
 
     public void PlantSeedling()
     {
         transform.GetChild(2).GetChild(0).GetComponent<Animator>().SetTrigger("plant seedling");
+        StartCoroutine(SeedlingParticleStart());
     }
+
+    private IEnumerator SeedlingParticleStart()
+    {
+        yield return new WaitForSeconds(0.25f);
+        transform.GetChild(2).GetChild(0).GetComponent<ParticleSystem>().Play();
+    }
+
 }
