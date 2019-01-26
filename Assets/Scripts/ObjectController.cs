@@ -25,26 +25,53 @@ public class ObjectController : MonoBehaviour
 			{
 				if (hitInfo.collider.GetComponentInParent<Pickup>())
 				{
+					_heldItem.transform.SetParent(null);
 					_heldItem = hitInfo.collider.GetComponentInParent<Pickup>();
 					_startPos = _heldItem.transform.position;
 					_offset = hitInfo.point - _startPos;
 					_targetPos = _heldItem.transform.position;
 
-					var itemPos = WorldGrid.instance.SnapToGrid(_heldItem.transform.position);
-					var itemIndex = WorldGrid.instance.PositionToIndex(itemPos);
-					WorldGrid.instance.SetIndex(itemIndex, null);
+					if (_heldItem.MyGrid != null)
+					{
+						Vector3 itemPos = _heldItem.MyGrid.SnapToGrid(_heldItem.transform.position);
+						Vector2Int itemIndex = _heldItem.MyGrid.PositionToIndex(itemPos);
+						_heldItem.MyGrid.SetIndex(itemIndex, null);
+					}
 				}
 			}
 		}
 
 		if (Input.GetMouseButtonUp(0))
 		{
-			if (_heldItem == null) return;
-			
-			var index = WorldGrid.instance.PositionToIndex(
-				new Vector2(_heldItem.transform.position.x, _heldItem.transform.position.z));
+			Vector3 v3 = Input.mousePosition;
+			v3 = CameraManager.instance.camera.ScreenToWorldPoint(v3);
 
-			WorldGrid.instance.SetIndex(index, _heldItem.gameObject);
+			Ray ray = new Ray(v3, CameraManager.instance.camera.transform.forward);
+
+			RaycastHit hitInfo;
+			if (_heldItem == null) return;
+
+			_grid = null;
+			if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity, LayerMask.GetMask("Grid")))
+			{
+				_grid = hitInfo.collider.GetComponent<ObjectGrid>();
+			}
+			else if (Physics.Raycast(ray, out hitInfo))
+			{
+				if (hitInfo.collider.GetComponent<DrawerBase>())
+				{
+					_heldItem.transform.SetParent(hitInfo.transform);
+					_heldItem = null;
+					_tileHighlighter.SetActive(false);
+				}
+			}
+
+			if (_grid == null) return;
+
+			Vector2Int index = _grid.PositionToIndex(
+				new Vector3(_heldItem.transform.position.x,_heldItem.transform.position.y ,_heldItem.transform.position.z));
+
+			_grid.SetIndex(index, _heldItem.gameObject);
 			_heldItem = null;
 			_tileHighlighter.SetActive(false);
 		}
@@ -55,25 +82,66 @@ public class ObjectController : MonoBehaviour
 		Vector3 v3 = Input.mousePosition;
 		v3 = CameraManager.instance.camera.ScreenToWorldPoint(v3);
 		Ray ray = new Ray(v3, CameraManager.instance.camera.transform.forward);
-		Plane plane = new Plane(Vector3.up, Vector3.zero);
-		float enter;
-		if (plane.Raycast(ray, out enter))
+
+		RaycastHit hitInfo;
+		_grid = null;
+		if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity, LayerMask.GetMask("Grid")))
 		{
-			Vector3 pos = ray.GetPoint(enter);
-			_gridPos = WorldGrid.instance.SnapToGrid(pos);
+			_grid = hitInfo.collider.GetComponent<ObjectGrid>();
+		}
 
-			if (!WorldGrid.instance.IsOccupied(WorldGrid.instance.PositionToIndex(_gridPos)))
+		if (_grid != null)
+		{
+			Plane plane = new Plane(Vector3.up, Vector3.zero);
+			float enter;
+			if (plane.Raycast(ray, out enter))
 			{
-				print("position occupied");
-				_targetPos = new Vector3(_gridPos.x + _offset.x, _heldItem.yOffset, _gridPos.y + _offset.z);
+				Vector3 pos = ray.GetPoint(enter);
+				_gridPos = _grid.SnapToGrid(pos);
+				Debug.DrawRay(_gridPos, Vector3.up, Color.magenta);
+
+				Vector2Int positionToIndex = _grid.PositionToIndex(_gridPos);
+				if (!_grid.IsOccupied(positionToIndex))
+				{
+					_targetPos = new Vector3(_gridPos.x + _offset.x, _heldItem.yOffset, _gridPos.z + _offset.z);
+					Debug.DrawRay(_targetPos, Vector3.up, Color.blue);
+				}
+
+				_heldItem.transform.position =
+					Vector3.Lerp(_heldItem.transform.position, _targetPos, Time.smoothDeltaTime * 7.5f);
+
+				_tileHighlighter.SetActive(true);
+				_tileHighlighter.transform.position =
+					new Vector3(_gridPos.x, _gridPos.y + 0.01f, _gridPos.z);
 			}
-
-			_heldItem.transform.position =
-				Vector3.Lerp(_heldItem.transform.position, _targetPos, Time.smoothDeltaTime * 7.5f);
-
-			_tileHighlighter.SetActive(true);
-			_tileHighlighter.transform.position =
-				new Vector3(_targetPos.x, _tileHighlighter.transform.position.y, _targetPos.z);
+		}
+		else
+		{
+			if (Physics.Raycast(ray, out hitInfo))
+			{
+				if (hitInfo.collider.GetComponent<DrawerBase>())
+				{
+					Plane plane = new Plane(Vector3.up, hitInfo.transform.position);
+					float enter;
+					if (plane.Raycast(ray, out enter))
+					{
+						Vector3 pos = ray.GetPoint(enter);
+						_heldItem.transform.position =
+							Vector3.Lerp(_heldItem.transform.position, pos, Time.smoothDeltaTime * 7.5f);
+					}
+				}
+				else
+				{
+					Plane plane = new Plane(Vector3.up, Vector3.zero);
+					float enter;
+					if (plane.Raycast(ray, out enter))
+					{
+						Vector3 pos = ray.GetPoint(enter);
+						_heldItem.transform.position =
+							Vector3.Lerp(_heldItem.transform.position, pos, Time.smoothDeltaTime * 7.5f);
+					}
+				}
+			}
 		}
 	}
 
@@ -86,4 +154,5 @@ public class ObjectController : MonoBehaviour
 
 	private Vector3 _targetPos;
 	private Vector3 _gridPos;
+	private ObjectGrid _grid;
 }

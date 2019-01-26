@@ -7,7 +7,7 @@ public class GridTest : MonoBehaviour
 {
 	private void Update()
 	{
-		_snappedPos = FindObjectOfType<WorldGrid>().SnapToGrid(transform.position);
+		_snappedPos = FindObjectOfType<ObjectGrid>().SnapToGrid(transform.position);
 	}
 
 	private void OnDrawGizmos()
