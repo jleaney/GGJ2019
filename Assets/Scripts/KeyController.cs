@@ -9,7 +9,7 @@ public class KeyController : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        lockController.Unlock();
+        FindObjectOfType<LockController>().Unlock();
         GetComponent<Animator>().SetTrigger("get key");
     }
 

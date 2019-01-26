@@ -27,18 +27,20 @@ public class ObjectController : MonoBehaviour
 				hitInfo.collider.SendMessage("OnClicked", null, SendMessageOptions.DontRequireReceiver);
 				if (hitInfo.collider.GetComponentInParent<Pickup>())
 				{
-					_heldItem = hitInfo.collider.GetComponentInParent<Pickup>();
-					if (_heldItem.CanPickup == false) return;
-					_heldItem.transform.SetParent(null);
-					_startPos = _heldItem.transform.position;
-					_offset = hitInfo.point - _startPos;
-					_targetPos = _heldItem.transform.position;
-
-					if (_heldItem.MyGrid != null)
+					if (hitInfo.collider.GetComponentInParent<Pickup>().CanPickup == true)
 					{
-						Vector3 itemPos = _heldItem.MyGrid.SnapToGrid(_heldItem.transform.position);
-						Vector2Int itemIndex = _heldItem.MyGrid.PositionToIndex(itemPos);
-						_heldItem.MyGrid.SetIndex(itemIndex, null);
+						_heldItem = hitInfo.collider.GetComponentInParent<Pickup>();
+						_heldItem.transform.SetParent(null);
+						_startPos = _heldItem.transform.position;
+						_offset = hitInfo.point - _startPos;
+						_targetPos = _heldItem.transform.position;
+
+						if (_heldItem.MyGrid != null)
+						{
+							Vector3 itemPos = _heldItem.MyGrid.SnapToGrid(_heldItem.transform.position);
+							Vector2Int itemIndex = _heldItem.MyGrid.PositionToIndex(itemPos);
+							_heldItem.MyGrid.SetIndex(itemIndex, null);
+						}
 					}
 				}
 			}
@@ -77,6 +79,11 @@ public class ObjectController : MonoBehaviour
 
 			_grid.SetIndex(index, _heldItem.gameObject);
 			_heldItem.CanPickup = false;
+			if (_heldItem.GetComponentInParent<Plant>())
+			{
+				_heldItem.GetComponentInParent<Plant>().PlantSeedling();
+			}
+			_heldItem.transform.SetParent(null);
 			_heldItem = null;
 			_tileHighlighter.SetActive(false);
 		}

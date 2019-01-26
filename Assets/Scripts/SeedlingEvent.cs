@@ -13,9 +13,4 @@ public class SeedlingEvent : MonoBehaviour {
     {
         GetComponent<ParticleSystem>().Play();
     }
-
-    private void OnMouseDown()
-    {
-        GetComponent<Animator>().SetTrigger("complete");
-    }
 }
