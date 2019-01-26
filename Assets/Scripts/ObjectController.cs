@@ -51,6 +51,8 @@ public class ObjectController : MonoBehaviour
 					_startPos = _heldItem.transform.position;
 					_offset = hitInfo.point - _startPos;
 					_heldItem.Held = true;
+
+					_targetPos = _heldItem.transform.position;
 				}
 			}
 		}
@@ -66,10 +68,6 @@ public class ObjectController : MonoBehaviour
 			WorldGrid.instance.SetIndex(index, _heldItem.gameObject);
 			_heldItem = null;
 			_tileHighlighter.SetActive(false);
-
-			_gridPos = Vector3.zero;
-			_targetPos = Vector3.zero;
-			_offset = Vector3.zero;
 		}
 	}
 

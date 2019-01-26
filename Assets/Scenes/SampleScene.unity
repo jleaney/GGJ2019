@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a18c15d110ea5441bed4771cc6b67bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yOffset: -0.2
+  yOffset: 0
 --- !u!4 &232107102
 Transform:
   m_ObjectHideFlags: 0
@@ -5144,7 +5144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a18c15d110ea5441bed4771cc6b67bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yOffset: -0.2
+  yOffset: 0
 --- !u!4 &482781082
 Transform:
   m_ObjectHideFlags: 0
@@ -5408,7 +5408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a18c15d110ea5441bed4771cc6b67bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yOffset: -0.2
+  yOffset: 0
 --- !u!4 &594617100
 Transform:
   m_ObjectHideFlags: 0
@@ -5796,7 +5796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a18c15d110ea5441bed4771cc6b67bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yOffset: -0.2
+  yOffset: 0
 --- !u!4 &1349380225
 Transform:
   m_ObjectHideFlags: 0
