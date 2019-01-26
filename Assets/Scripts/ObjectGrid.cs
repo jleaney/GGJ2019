@@ -60,8 +60,8 @@ public class ObjectGrid : MonoBehaviour
 		return worldGrid[index.x, index.y] != null;
 	}
 
-	[SerializeField] private float gridWidth = 1;
-	private GameObject[,] worldGrid;
+	[SerializeField] public float gridWidth = 1;
+	public GameObject[,] worldGrid;
 	[SerializeField] private int _gridSizeX = 9;
 	[SerializeField] private int _gridSizeZ = 9;
 }

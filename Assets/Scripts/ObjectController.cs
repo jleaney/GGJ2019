@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 
@@ -23,9 +24,11 @@ public class ObjectController : MonoBehaviour
 
 			if (Physics.Raycast(ray, out hitInfo))
 			{
+				hitInfo.collider.SendMessage("OnClicked", null, SendMessageOptions.DontRequireReceiver);
 				if (hitInfo.collider.GetComponentInParent<Pickup>())
 				{
 					_heldItem = hitInfo.collider.GetComponentInParent<Pickup>();
+					if (_heldItem.CanPickup == false) return;
 					_heldItem.transform.SetParent(null);
 					_startPos = _heldItem.transform.position;
 					_offset = hitInfo.point - _startPos;
@@ -56,11 +59,12 @@ public class ObjectController : MonoBehaviour
 			{
 				_grid = hitInfo.collider.GetComponent<ObjectGrid>();
 			}
-			else if (Physics.Raycast(ray, out hitInfo))
+			else
 			{
-				if (hitInfo.collider.GetComponent<DrawerBase>())
+				var hits = Physics.RaycastAll(ray);
+				if (hits.Any(x => x.collider.GetComponent<DrawerBase>()))
 				{
-					_heldItem.transform.SetParent(hitInfo.transform);
+					_heldItem.transform.SetParent(hits.First(x => x.collider.GetComponent<DrawerBase>()).transform);
 					_heldItem = null;
 					_tileHighlighter.SetActive(false);
 				}
@@ -72,6 +76,7 @@ public class ObjectController : MonoBehaviour
 				new Vector3(_heldItem.transform.position.x,_heldItem.transform.position.y ,_heldItem.transform.position.z));
 
 			_grid.SetIndex(index, _heldItem.gameObject);
+			_heldItem.CanPickup = false;
 			_heldItem = null;
 			_tileHighlighter.SetActive(false);
 		}
@@ -119,9 +124,10 @@ public class ObjectController : MonoBehaviour
 		{
 			if (Physics.Raycast(ray, out hitInfo))
 			{
-				if (hitInfo.collider.GetComponent<DrawerBase>())
+				var hits = Physics.RaycastAll(ray);
+				if (hits.Any(x => x.collider.GetComponent<DrawerBase>()))
 				{
-					Plane plane = new Plane(Vector3.up, hitInfo.transform.position);
+					Plane plane = new Plane(Vector3.up, hits.First(x => x.collider.GetComponent<DrawerBase>()).transform.position);
 					float enter;
 					if (plane.Raycast(ray, out enter))
 					{
