@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LockController : MonoBehaviour {
+public class LockController : MonoBehaviour
+{
 
     [SerializeField]
     private bool hasKey;
@@ -25,15 +26,23 @@ public class LockController : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        if (hasKey)
-        {
-            GetComponent<Animator>().SetTrigger("unlock");
-            transform.parent.transform.parent.GetComponent<DrawerController>().Unlocked = true;
-        }
-
-        else if (!hasKey && !GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Fail Unlock"))
+        if (!hasKey && !GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Fail Unlock"))
         {
             GetComponent<Animator>().SetTrigger("fail unlock");
         }
+    }
+
+    public void Unlock()
+    {
+        GetComponent<Animator>().SetTrigger("unlock"); // plays unlock animation
+        hasKey = true;
+    }
+
+    public void UnlockDrawer()
+    {
+        GameObject drawCont = transform.parent.transform.parent.GetComponent<DrawerController>().gameObject;
+        drawCont.GetComponent<DrawerController>().Unlocked = true;
+        drawCont.GetComponent<Animator>().SetTrigger("open");
+        drawCont.GetComponent<DrawerController>().Open = true;
     }
 }
