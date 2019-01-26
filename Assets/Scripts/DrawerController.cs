@@ -22,6 +22,19 @@ public class DrawerController : MonoBehaviour {
         }
     }
 
+    public bool Open
+    {
+        get
+        {
+            return open;
+        }
+
+        set
+        {
+            open = value;
+        }
+    }
+
     private void Start()
     {
 
