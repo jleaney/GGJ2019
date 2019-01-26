@@ -2,6 +2,8 @@
 
 public class WateringCan : Tool
 {
+	public GameObject waterIndicator;
+
 	private void OnMouseDown()
 	{
 		Vector3 v3 = Input.mousePosition;
@@ -15,11 +17,13 @@ public class WateringCan : Tool
 			_offset = pos - transform.position;
 		}
 		particles.Play(true);
+		waterIndicator.SetActive(true);
 	}
 
 	private void OnMouseUp()
 	{
-		particles.Play(false);
+		particles.Stop(true);
+		waterIndicator.SetActive(false);
 	}
 
 	private void OnMouseDrag()
@@ -32,8 +36,9 @@ public class WateringCan : Tool
 		if (plane.Raycast(ray, out enter))
 		{
 			Vector3 pos = ray.GetPoint(enter);
-			transform.position = new Vector3(pos.x, transform.position.y, pos.z);
+			transform.position = Vector3.Lerp(transform.position, new Vector3(pos.x, 2, pos.z), Time.smoothDeltaTime * 5f);
 		}
+		waterIndicator.transform.position = new Vector3(waterIndicator.transform.position.x, 0.025f, waterIndicator.transform.position.z);
 	}
 
 	private bool _watering;

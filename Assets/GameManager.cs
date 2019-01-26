@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
 	public MeshRenderer grassImage;
 
-	int startingClutterAmt = 10;
+	int startingClutterAmt = 1;
 	private ObjectGrid grid;
 
 	public List<GameObject> spawnItems;
