@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class ObjectController : MonoBehaviour
@@ -16,10 +17,20 @@ public class ObjectController : MonoBehaviour
 			if (plane.Raycast(ray, out enter))
 			{
 				Vector3 pos = ray.GetPoint(enter);
-				Vector2 snappedPos = WorldGrid.instance.SnapToGrid(pos);
-				Vector3 targetPos = new Vector3(snappedPos.x, 0, snappedPos.y);
+				_gridPos = WorldGrid.instance.SnapToGrid(pos);
+
+				if (!WorldGrid.instance.IsOccupied(WorldGrid.instance.PositionToIndex(_gridPos)))
+				{
+					print("position occupied");
+					_targetPos = new Vector3(_gridPos.x + _offset.x, _heldItem.yOffset, _gridPos.y + _offset.z);
+				}
+
 				_heldItem.transform.position =
-					Vector3.Lerp(_heldItem.transform.position, targetPos, Time.smoothDeltaTime * 7.5f);
+					Vector3.Lerp(_heldItem.transform.position, _targetPos, Time.smoothDeltaTime * 7.5f);
+
+				_tileHighlighter.SetActive(true);
+				_tileHighlighter.transform.position =
+					new Vector3(_targetPos.x, _tileHighlighter.transform.position.y, _targetPos.z);
 			}
 		}
 
@@ -37,15 +48,38 @@ public class ObjectController : MonoBehaviour
 				if (hitInfo.collider.GetComponentInParent<Pickup>())
 				{
 					_heldItem = hitInfo.collider.GetComponentInParent<Pickup>();
+					_startPos = _heldItem.transform.position;
+					_offset = hitInfo.point - _startPos;
+					_heldItem.Held = true;
 				}
 			}
 		}
 
 		if (Input.GetMouseButtonUp(0))
 		{
+			if (_heldItem == null) return;
+
+			_heldItem.Held = false;
+			var index = WorldGrid.instance.PositionToIndex(
+				new Vector2(_heldItem.transform.position.x, _heldItem.transform.position.z));
+
+			WorldGrid.instance.SetIndex(index, _heldItem.gameObject);
 			_heldItem = null;
+			_tileHighlighter.SetActive(false);
+
+			_gridPos = Vector3.zero;
+			_targetPos = Vector3.zero;
+			_offset = Vector3.zero;
 		}
 	}
 
+
+	[SerializeField] private GameObject _tileHighlighter;
+
 	private Pickup _heldItem;
+	private Vector3 _startPos;
+	private Vector3 _offset;
+
+	private Vector3 _targetPos;
+	private Vector3 _gridPos;
 }
