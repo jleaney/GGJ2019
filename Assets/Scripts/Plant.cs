@@ -4,22 +4,24 @@ public class Plant : Pickup
 {
     [SerializeField]
     private Material plant;
+    private Material seedling;
 
     [SerializeField]
     private float scaleMin, scaleMax;
 
     [SerializeField]
     private GameObject[] grassCombos;
+
     private void Start()
     {
-        // set seeding
+        transform.GetChild(0).gameObject.SetActive(false); // ensures fully grown state is off
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            CompleteGrowing();
+            PlantSeedling();
         }
     }
 
@@ -34,19 +36,27 @@ public class Plant : Pickup
         Instantiate(grassCombos[Mathf.FloorToInt(Random.Range(0, grassCombos.Length))], transform.parent);
     }
 
-    private void Grow()
+    public void Grow()
     {
-        // seedling grow animation
+        GetComponentInChildren<Animator>().SetTrigger("grow");
     }
 
     public void CompleteGrowing()
     {
+        transform.GetChild(0).gameObject.SetActive(true);
         transform.GetComponentInChildren<Renderer>().material = plant;
 
         SetRandomSize();
 
         SetGrassCombo();
 
+
+
         transform.GetComponentInChildren<ParticleSystem>().Play();
+    }
+
+    public void PlantSeedling()
+    {
+        transform.GetChild(2).GetComponent<Animator>().SetTrigger("plant seedling");
     }
 }
