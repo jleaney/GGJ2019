@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
 
 	void Start()
 	{
+		Overlay.instance.FadeIn(0);
+		Overlay.instance.FadeOut(5.0f);
 		PopulateWorld();
 	}
 

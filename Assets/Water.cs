@@ -4,21 +4,11 @@ using UnityEngine;
 
 public class Water : MonoBehaviour
 {
-	private void Update()
+	private void OnTriggerEnter(Collider other)
 	{
-		Ray ray = new Ray(transform.position, Vector3.up);
-		Debug.DrawRay(transform.position, Vector3.up, Color.magenta);
-		RaycastHit[] hits = Physics.SphereCastAll(ray, 0.35f, 1);
-		if (hits != null)
-		{
-			foreach (var hit in hits)
-			{
-				print(hit.collider.name);
-				if (hit.collider.GetComponentInParent<Plant>())
-				{
-					hit.collider.GetComponentInParent<Plant>().transform.GetChild(2).GetComponent<Animator>().SetTrigger("complete");
-				}
-			}
-		}
+		if (!other.gameObject.GetComponentInParent<Plant>()) return;
+		if (other.gameObject.GetComponentInParent<Plant>().isGrown) return;
+		other.gameObject.GetComponentInParent<Plant>().transform.GetChild(2).GetChild(0).GetComponent<Animator>().SetTrigger("complete");
+		other.gameObject.GetComponentInParent<Plant>().isGrown = true;
 	}
 }

@@ -5,6 +5,7 @@ public class Plant : Pickup
     [SerializeField]
     private Material plant;
     private Material seedling;
+	public bool isGrown;
 
     [SerializeField]
     private float scaleMin, scaleMax;
@@ -27,13 +28,14 @@ public class Plant : Pickup
 
     private void SetRandomSize()
     {
-        float size = Random.Range(scaleMin, scaleMax);
+        float size = Random.Range(scaleMin, scaleMax);	
         transform.localScale = new Vector3(size, size, size);
     }
 
     private void SetGrassCombo()
     {
-        Instantiate(grassCombos[Mathf.FloorToInt(Random.Range(0, grassCombos.Length))], transform.parent);
+        var obj = Instantiate(grassCombos[Mathf.FloorToInt(Random.Range(0, grassCombos.Length))], transform.position, transform.rotation);
+		obj.transform.SetParent(transform);
     }
 
     public void Grow()
@@ -57,6 +59,6 @@ public class Plant : Pickup
 
     public void PlantSeedling()
     {
-        transform.GetChild(2).GetComponent<Animator>().SetTrigger("plant seedling");
+        transform.GetChild(2).GetChild(0).GetComponent<Animator>().SetTrigger("plant seedling");
     }
 }

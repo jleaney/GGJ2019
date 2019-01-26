@@ -1,8 +1,16 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 public class WateringCan : Tool
 {
 	public GameObject waterIndicator;
+	private Vector3 startPosition;
+
+
+	private void Start()
+	{
+		startPosition = transform.position;
+	}
 
 	private void OnMouseDown()
 	{
@@ -24,6 +32,7 @@ public class WateringCan : Tool
 	{
 		particles.Stop(true);
 		waterIndicator.SetActive(false);
+		transform.DOMove(startPosition, 0.5f);
 	}
 
 	private void OnMouseDrag()

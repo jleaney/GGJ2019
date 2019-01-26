@@ -92,8 +92,24 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4402089168276792}
+  - component: {fileID: 54647179327541634}
   m_Layer: 0
   m_Name: Plant 5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1634199595190928
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4202448285527422}
+  m_Layer: 0
+  m_Name: Seedling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,10 +127,24 @@ Transform:
   m_Children:
   - {fileID: 4265378655646776}
   - {fileID: 4635579353031116}
-  - {fileID: 4222563683939984}
+  - {fileID: 4202448285527422}
   m_Father: {fileID: 4402089168276792}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 45.000004, z: 0}
+--- !u!4 &4202448285527422
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1634199595190928}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.15, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.35, z: 0.3}
+  m_Children:
+  - {fileID: 4222563683939984}
+  m_Father: {fileID: 4193234494852432}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4222563683939984
 Transform:
   m_ObjectHideFlags: 1
@@ -123,10 +153,10 @@ Transform:
   m_GameObject: {fileID: 1211444357060804}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.934, z: 0}
-  m_LocalScale: {x: 2.016, y: 2.6892, z: 1.3446}
+  m_LocalScale: {x: 2.0159998, y: 2.6892, z: 1.3446}
   m_Children: []
-  m_Father: {fileID: 4193234494852432}
-  m_RootOrder: 2
+  m_Father: {fileID: 4202448285527422}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4265378655646776
 Transform:
@@ -148,7 +178,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1605087529884156}
   m_LocalRotation: {x: -0, y: 0.38268322, z: -0, w: 0.9238797}
-  m_LocalPosition: {x: 1.261, y: 0.16499993, z: -1.041}
+  m_LocalPosition: {x: 0.377, y: 0.57559973, z: 0.486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4193234494852432}
@@ -252,6 +282,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1211444357060804}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54647179327541634
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1605087529884156}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!64 &64087550082042998
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -312,8 +357,8 @@ MonoBehaviour:
   MyGrid: {fileID: 0}
   yOffset: 0
   plant: {fileID: 2100000, guid: b3861253d42f4e340bf99bbca7d4ace8, type: 2}
-  scaleMin: 0.8
-  scaleMax: 1.4
+  scaleMin: 1.1
+  scaleMax: 1.5
   grassCombos:
   - {fileID: 1216214169654066, guid: b004577abf2f0f44cbc271b244f8ca5e, type: 2}
   - {fileID: 1775403196084774, guid: 5034e2160afef0a4c9bab812c8661edf, type: 2}

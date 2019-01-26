@@ -30,7 +30,7 @@ public class ObjectController : MonoBehaviour
 					if (hitInfo.collider.GetComponentInParent<Pickup>().CanPickup == true)
 					{
 						_heldItem = hitInfo.collider.GetComponentInParent<Pickup>();
-						_heldItem.transform.SetParent(null);
+						_heldItem.GetComponentInParent<Rigidbody>().transform.SetParent(null);
 						_startPos = _heldItem.transform.position;
 						_offset = hitInfo.point - _startPos;
 						_targetPos = _heldItem.transform.position;
@@ -61,21 +61,11 @@ public class ObjectController : MonoBehaviour
 			{
 				_grid = hitInfo.collider.GetComponent<ObjectGrid>();
 			}
-			else
-			{
-				var hits = Physics.RaycastAll(ray);
-				if (hits.Any(x => x.collider.GetComponent<DrawerBase>()))
-				{
-					_heldItem.transform.SetParent(hits.First(x => x.collider.GetComponent<DrawerBase>()).transform);
-					_heldItem = null;
-					_tileHighlighter.SetActive(false);
-				}
-			}
 
 			if (_grid == null) return;
 
 			Vector2Int index = _grid.PositionToIndex(
-				new Vector3(_heldItem.transform.position.x,_heldItem.transform.position.y ,_heldItem.transform.position.z));
+				new Vector3(_heldItem.transform.position.x, _heldItem.transform.position.y, _heldItem.transform.position.z));
 
 			_grid.SetIndex(index, _heldItem.gameObject);
 			_heldItem.CanPickup = false;
@@ -83,7 +73,6 @@ public class ObjectController : MonoBehaviour
 			{
 				_heldItem.GetComponentInParent<Plant>().PlantSeedling();
 			}
-			_heldItem.transform.SetParent(null);
 			_heldItem = null;
 			_tileHighlighter.SetActive(false);
 		}
