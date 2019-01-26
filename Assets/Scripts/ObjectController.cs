@@ -25,8 +25,8 @@ public class ObjectController : MonoBehaviour
 			{
 				if (hitInfo.collider.GetComponentInParent<Pickup>())
 				{
-					_heldItem.transform.SetParent(null);
 					_heldItem = hitInfo.collider.GetComponentInParent<Pickup>();
+					_heldItem.transform.SetParent(null);
 					_startPos = _heldItem.transform.position;
 					_offset = hitInfo.point - _startPos;
 					_targetPos = _heldItem.transform.position;
