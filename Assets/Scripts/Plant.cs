@@ -15,6 +15,14 @@ public class Plant : Pickup
         // set seeding
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            CompleteGrowing();
+        }
+    }
+
     private void SetRandomSize()
     {
         float size = Random.Range(scaleMin, scaleMax);
@@ -38,5 +46,7 @@ public class Plant : Pickup
         SetRandomSize();
 
         SetGrassCombo();
+
+        transform.GetComponentInChildren<ParticleSystem>().Play();
     }
 }
