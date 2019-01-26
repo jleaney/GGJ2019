@@ -15,7 +15,7 @@ public class Plant : Pickup
     private GameObject[] grassCombos;
 
     private void Start()
-    {
+	{
         transform.GetChild(0).gameObject.SetActive(false); // ensures fully grown state is off
     }
 

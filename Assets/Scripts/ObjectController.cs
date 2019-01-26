@@ -30,7 +30,7 @@ public class ObjectController : MonoBehaviour
 					if (hitInfo.collider.GetComponentInParent<Pickup>().CanPickup == true)
 					{
 						_heldItem = hitInfo.collider.GetComponentInParent<Pickup>();
-						_heldItem.GetComponentInParent<Rigidbody>().transform.SetParent(null);
+						_heldItem.startPos = _heldItem.transform.parent.position;
 						_startPos = _heldItem.transform.position;
 						_offset = hitInfo.point - _startPos;
 						_targetPos = _heldItem.transform.position;
@@ -67,10 +67,12 @@ public class ObjectController : MonoBehaviour
 			Vector2Int index = _grid.PositionToIndex(
 				new Vector3(_heldItem.transform.position.x, _heldItem.transform.position.y, _heldItem.transform.position.z));
 
+			_heldItem.GetComponentInParent<Rigidbody>().transform.SetParent(null);
 			_grid.SetIndex(index, _heldItem.gameObject);
 			_heldItem.CanPickup = false;
 			if (_heldItem.GetComponentInParent<Plant>())
 			{
+				_heldItem.Planted();
 				_heldItem.GetComponentInParent<Plant>().PlantSeedling();
 			}
 			_heldItem = null;

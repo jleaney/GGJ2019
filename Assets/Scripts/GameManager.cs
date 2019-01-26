@@ -25,11 +25,8 @@ public class GameManager : MonoBehaviour
 		set
 		{
 			trashRemaining = value;
-			if (trashRemaining <= 0)
-			{
-				DOTween.To(() => grassImage.material.GetFloat("_Blend"),
-					x => grassImage.material.SetFloat("_Blend", x), 1.0f, 2.5f);
-			}
+			DOTween.To(() => grassImage.material.GetFloat("_Blend"),
+				x => grassImage.material.SetFloat("_Blend", x), 1 - trashRemaining/10f, 2.5f);
 		} }
 
 

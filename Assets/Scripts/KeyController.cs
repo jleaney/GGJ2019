@@ -8,9 +8,11 @@ public class KeyController : MonoBehaviour {
     private LockController lockController;
 
     private void OnMouseDown()
-    {
-        FindObjectOfType<LockController>().Unlock();
-        GetComponent<Animator>().SetTrigger("get key");
+	{
+		var locks = FindObjectsOfType<LockController>();
+		foreach (var l in locks)
+			l.Unlock();
+		GetComponent<Animator>().SetTrigger("get key");
     }
 
     public void PlayParticleFX()
