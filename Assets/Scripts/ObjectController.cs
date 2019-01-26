@@ -72,9 +72,9 @@ public class ObjectController : MonoBehaviour
 			_heldItem.CanPickup = false;
 			if (_heldItem.GetComponentInParent<Plant>())
 			{
-				_heldItem.Planted();
 				_heldItem.GetComponentInParent<Plant>().PlantSeedling();
 			}
+			_heldItem.Planted();
 			_heldItem = null;
 			_tileHighlighter.SetActive(false);
 		}
