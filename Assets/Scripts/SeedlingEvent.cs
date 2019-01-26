@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class SeedlingEvent : MonoBehaviour {
 
-    [SerializeField]
-    private Plant plant;
-
     public void CallGrow()
     {
         GetComponentInParent<Plant>().CompleteGrowing();

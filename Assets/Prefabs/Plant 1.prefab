@@ -149,7 +149,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1343267888345118}
   m_LocalRotation: {x: -0, y: 0.38268322, z: -0, w: 0.9238797}
-  m_LocalPosition: {x: -0.21398115, y: 0.5756004, z: 7.626137}
+  m_LocalPosition: {x: -1.3605508, y: 0.009999794, z: -1.7302635}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4117036312232860}
@@ -368,6 +368,7 @@ MonoBehaviour:
   MyGrid: {fileID: 0}
   yOffset: 0
   plant: {fileID: 2100000, guid: 51378ff9bba96ca4e87d51fbcb2d9bca, type: 2}
+  isGrown: 0
   scaleMin: 1.1
   scaleMax: 1.65
   grassCombos:
@@ -1003,7 +1004,7 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 0.5
     donutRadius: 0.2
-    m_Position: {x: 0, y: -0.1, z: 0}
+    m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.3, y: 0.3, z: 1}
     placementMode: 0
