@@ -28,7 +28,20 @@ public class EndController : MonoBehaviour {
     [SerializeField]
     private Overlay overlayCanvas;
 
+    [SerializeField]
+    private bool takeScreenshotAtEnd = false;
+
+    [SerializeField]
+    private float screenshotFadeTime = 3;
+
     private bool screenshotTaken = false;
+    private bool fadeOutStarted = false;
+
+    [SerializeField]
+    private GameObject endMenu;
+
+    [SerializeField]
+    private GameObject wateringCan;
 	void Start () {
 
         postProcessing.profile.TryGetSettings(out vignetteLayer); // sets up the vignette layer / effect
@@ -48,10 +61,16 @@ public class EndController : MonoBehaviour {
             vignetteLayer.intensity.value = valToBeLerped;
         }
 
-        if (tParam >= 1 && !screenshotTaken)
+        if (tParam >= 1 && !screenshotTaken && takeScreenshotAtEnd && !fadeOutStarted)
         {
+            StartCoroutine(GameEndUI());
             TakeScreenshot();
             screenshotTaken = true;
+        }
+
+        else if (tParam >= 1 && !fadeOutStarted)
+        {
+            StartCoroutine(GameEndUI());
         }
 
         // TEMP
@@ -65,12 +84,37 @@ public class EndController : MonoBehaviour {
     {
         dome.GetComponent<Animator>().SetTrigger("close roof");
         increaseVignette = true;
+        wateringCan.SetActive(false);
     }
 
     private void TakeScreenshot()
     {
-        // take actual screenshot
-        overlayCanvas.OverlayImage.color = new Color(1, 1, 1, 0.8f);
-        overlayCanvas.FadeOut(3);
+        // take actual screenshot here
+        overlayCanvas.OverlayImage.color = new Color(1, 1, 1, 0.8f); // white screenshot visual indication
+        // minimize screenshot here
+        overlayCanvas.FadeOut(screenshotFadeTime);
+    }
+
+    private IEnumerator GameEndUI()
+    {
+        fadeOutStarted = true;
+
+        if (takeScreenshotAtEnd)
+        {
+            yield return new WaitForSeconds(screenshotFadeTime);
+        }
+
+        else
+        {
+            yield return new WaitForSeconds(0);
+        }
+
+        Color black = new Color(0, 0, 0, 0);
+        overlayCanvas.FadeIn(3, black, 0.7f);
+
+        endMenu.SetActive(true);
+        
     }
 }
+
+
