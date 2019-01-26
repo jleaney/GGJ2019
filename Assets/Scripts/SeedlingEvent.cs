@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class SeedlingEvent : MonoBehaviour {
 
-	public void CallGrow()
+    public void CallGrow()
     {
         GetComponentInParent<Plant>().CompleteGrowing();
-    }
-
-    public void ParticleSystemPlay()
-    {
-        GetComponent<ParticleSystem>().Play();
     }
 }
