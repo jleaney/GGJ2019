@@ -20,13 +20,13 @@ public class Overlay : MonoBehaviour
 
 	public void FadeIn(float duration)
 	{
-		FadeIn(duration, Color.white);
+		FadeIn(duration, Color.white, 1);
 	}
 
-	public void FadeIn(float duration, Color color)
+	public void FadeIn(float duration, Color color, float alpha)
 	{
 		_overlay.color = color;
-		_overlay.DOFade(1.0f, duration);
+		_overlay.DOFade(alpha, duration);
 	}
 
 	[SerializeField] private Image _overlay;
