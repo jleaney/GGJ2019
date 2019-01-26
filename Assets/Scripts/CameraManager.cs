@@ -6,7 +6,7 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
 	public static CameraManager instance;
-	public Camera camera;
+	public new Camera camera;
 
 	private void Awake()
 	{
