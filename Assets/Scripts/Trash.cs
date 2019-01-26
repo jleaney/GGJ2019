@@ -13,7 +13,7 @@ public class Trash : MonoBehaviour
 		GameManager.instance.TrashRemaining--;
 		if (GameManager.instance.TrashRemaining <= 0)
 		{
-			Instantiate(key, transform.position, Quaternion.identity);
+			Instantiate(key, transform.position + Vector3.up * 0.5f, Quaternion.identity);
 		}
 		Destroy(gameObject);
 	}

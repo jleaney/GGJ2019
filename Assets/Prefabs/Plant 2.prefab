@@ -87,11 +87,11 @@ GameObject:
   - component: {fileID: 4357506992192284}
   - component: {fileID: 33032170066280200}
   - component: {fileID: 23824598253971664}
-  - component: {fileID: 64894163218636962}
   - component: {fileID: 95177962287345870}
   - component: {fileID: 198574811440440996}
   - component: {fileID: 114449118350191074}
   - component: {fileID: 199963592308181736}
+  - component: {fileID: 65598730065668760}
   m_Layer: 0
   m_Name: Seedling VisRep
   m_TagString: Untagged
@@ -311,8 +311,8 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64894163218636962
-MeshCollider:
+--- !u!65 &65598730065668760
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -320,11 +320,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.5699491, z: 6.12313e-17}
+  m_Center: {x: 0.00000049276326, y: -0.21502589, z: 2.238504e-14}
 --- !u!95 &95177962287345870
 Animator:
   serializedVersion: 3
@@ -368,6 +366,7 @@ MonoBehaviour:
   MyGrid: {fileID: 0}
   yOffset: 0
   plant: {fileID: 2100000, guid: 689dea7d00f38dc44b3b588faeefb17d, type: 2}
+  isGrown: 0
   scaleMin: 1.1
   scaleMax: 1.65
   grassCombos:
