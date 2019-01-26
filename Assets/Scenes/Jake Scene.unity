@@ -493,6 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a18c15d110ea5441bed4771cc6b67bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yOffset: 0
 --- !u!4 &232107102
 Transform:
   m_ObjectHideFlags: 0
@@ -5154,6 +5155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a18c15d110ea5441bed4771cc6b67bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yOffset: 0
 --- !u!4 &482781082
 Transform:
   m_ObjectHideFlags: 0
@@ -5470,6 +5472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a18c15d110ea5441bed4771cc6b67bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yOffset: 0
 --- !u!4 &594617100
 Transform:
   m_ObjectHideFlags: 0
@@ -10564,6 +10567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a18c15d110ea5441bed4771cc6b67bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yOffset: 0
 --- !u!4 &1053719332
 Transform:
   m_ObjectHideFlags: 0
@@ -10806,6 +10810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a18c15d110ea5441bed4771cc6b67bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yOffset: 0
 --- !u!4 &1349380225
 Transform:
   m_ObjectHideFlags: 0
@@ -11087,6 +11092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a18c15d110ea5441bed4771cc6b67bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yOffset: 0
 --- !u!4 &1844740138
 Transform:
   m_ObjectHideFlags: 0
@@ -11487,6 +11493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2110235803}
+  - component: {fileID: 2110235804}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -11509,3 +11516,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2110235804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2110235802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c1eb2a8ecbe2c144a10a91c8ba61415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ambientSounds:
+  - {fileID: 8300000, guid: 99c1ae9ff63a0214a969add5fbb9d8e6, type: 3}
+  musicTracks:
+  - {fileID: 8300000, guid: b50edabb0784bb34f816cd65c37fbcd0, type: 3}
