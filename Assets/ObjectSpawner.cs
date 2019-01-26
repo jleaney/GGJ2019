@@ -15,6 +15,7 @@ public class ObjectSpawner : MonoBehaviour
 	{
 		spawn = Instantiate(prefab, transform.position, prefab.transform.rotation).GetComponentInChildren<Pickup>();
 		spawn.transform.parent.SetParent(transform.parent);
+		spawn.transform.localScale *= 0.5f;
 		spawn.OnPlant += SpawnNew;
 	}
 }

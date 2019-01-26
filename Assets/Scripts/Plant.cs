@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class Plant : Pickup
 {
@@ -58,7 +59,8 @@ public class Plant : Pickup
 
     public void PlantSeedling()
     {
-        transform.GetChild(2).GetChild(0).GetComponent<Animator>().SetTrigger("plant seedling");
+		transform.GetChild(2).DOScale(transform.GetChild(2).localScale * 2.0f, 0.5f).SetEase(Ease.InOutElastic);
+		transform.GetChild(2).GetChild(0).GetComponent<Animator>().SetTrigger("plant seedling");
         StartCoroutine(SeedlingParticleStart());
     }
 
