@@ -29,6 +29,7 @@ public class ObjectController : MonoBehaviour
 				{
 					if (hitInfo.collider.GetComponentInParent<Pickup>().CanPickup == true)
 					{
+						AudioManager.instance.CreateSFX("pickup");
 						_heldItem = hitInfo.collider.GetComponentInParent<Pickup>();
 						_heldItem.startPos = _heldItem.transform.parent.position;
 						_startPos = _heldItem.transform.position;
