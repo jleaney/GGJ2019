@@ -11,6 +11,6 @@ public class SeedlingEvent : MonoBehaviour {
 
     public void ParticleSystemPlay()
     {
-        GetComponent<ParticleSystem>().Play();
+        gameObject.GetComponent<ParticleSystem>().Play();
     }
 }
