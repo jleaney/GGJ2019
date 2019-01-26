@@ -23,6 +23,7 @@ AudioMixerController:
     - c52b8e8559a1e8544b3a9dde30e01381
     - fcfeabad66716e74faab44079064678b
     - 56fd4397eaf05d841b278eefa3d763de
+    - a2110ec25db32f942831834913c54803
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -110,6 +111,7 @@ AudioMixerGroupController:
   - {fileID: 243737046642457214}
   - {fileID: 243199776561542882}
   - {fileID: 243923967276569288}
+  - {fileID: 243965817757676114}
   m_Volume: d83749554afc72140bc0a1e1a687c727
   m_Pitch: 9a4f9056da4462a448cc45c4196e0db9
   m_Effects:
@@ -166,6 +168,23 @@ AudioMixerGroupController:
   m_Pitch: 4257686a78ca5ac4886e8a2267db49c4
   m_Effects:
   - {fileID: 244542821882583384}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &243965817757676114
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Dome
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: a2110ec25db32f942831834913c54803
+  m_Children: []
+  m_Volume: d68b08cbaf622f247b6ffed95b70b47b
+  m_Pitch: 8f2fd73cbea29e14abfc84db7244505b
+  m_Effects:
+  - {fileID: 244587228365468518}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -246,6 +265,19 @@ AudioMixerEffectController:
   m_EffectID: 32b1cfde4ec66554382f715baad09bcb
   m_EffectName: Attenuation
   m_MixLevel: b86b0a9872029234aa611d49843aab8b
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &244587228365468518
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 39722668c0a3c4642b4b788a0c7dd385
+  m_EffectName: Attenuation
+  m_MixLevel: 1a556aa59e9c82e4da5977c0d43c2cd5
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0

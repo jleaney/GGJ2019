@@ -30,4 +30,12 @@ public class Overlay : MonoBehaviour
 	}
 
 	[SerializeField] private Image _overlay;
+
+    public Image OverlayImage
+    {
+        get
+        {
+            return _overlay;
+        }
+    }
 }
