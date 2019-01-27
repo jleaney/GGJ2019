@@ -5,10 +5,16 @@ public class WateringCan : Tool
 {
 	public GameObject waterIndicator;
 	private Vector3 startPosition;
+	private AudioSource audioSource;
+
+	[SerializeField] private AudioClip startClip;
+	[SerializeField] private AudioClip endClip;
+	[SerializeField] private AudioClip loopClip;
 
 
 	private void Start()
 	{
+		audioSource = GetComponent<AudioSource>();
 		startPosition = transform.position;
 	}
 
@@ -25,11 +31,21 @@ public class WateringCan : Tool
 			_offset = pos - transform.position;
 		}
 		particles.Play(true);
+		audioSource.PlayOneShot(startClip);
+		Invoke("PlayAudioLoop", startClip.length);
 		waterIndicator.SetActive(true);
+	}
+
+	void PlayAudioLoop()
+	{
+		audioSource.Play();
+		audioSource.clip = loopClip;
 	}
 
 	private void OnMouseUp()
 	{
+		audioSource.Stop();
+		audioSource.PlayOneShot(endClip);
 		particles.Stop(true);
 		waterIndicator.SetActive(false);
 		transform.DOMove(startPosition, 0.5f);

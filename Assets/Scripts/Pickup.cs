@@ -24,5 +24,6 @@ public class Pickup : MonoBehaviour
 	public void Planted()
 	{
 		if (OnPlant != null) OnPlant.Invoke();
+		AudioManager.instance.CreateSFX("place");
 	}
 }

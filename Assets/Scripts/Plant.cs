@@ -49,7 +49,7 @@ public class Plant : Pickup
     {
         transform.GetChild(0).gameObject.SetActive(true);
         transform.GetComponentInChildren<Renderer>().material = plant;
-
+		AudioManager.instance.CreateSFX("grow");
         SetRandomSize();
 
         SetGrassCombo();
