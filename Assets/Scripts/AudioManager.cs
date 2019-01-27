@@ -66,10 +66,6 @@ public class AudioManager : MonoBehaviour
 		mixers.Add("grow", growMixer);
 
 		music = transform.GetChild(0).GetComponent<AudioSource>();
-		ambience = transform.GetChild(1).GetComponent<AudioSource>();
-
-		ambience.clip = ambientSounds[0];
-		ambience.Play();
 
 		music.clip = musicTracks[Random.Range(0, musicTracks.Length - 1)];
 		music.Play();
