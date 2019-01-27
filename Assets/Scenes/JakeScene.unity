@@ -11971,7 +11971,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a8dd1390f909526488f3d98c62bc5782, type: 3}
   - {fileID: 8300000, guid: 098c1189bd5c8464195b886c64b95d52, type: 3}
   digSFX:
-  - {fileID: 8300000, guid: b9aedac68ab072a4a9c25c4af205732a, type: 3}
   - {fileID: 8300000, guid: 68286887f1be0194ba0a3bffa29c2e87, type: 3}
   sfx: {fileID: 82046760213355298, guid: fe14604df238dd84eb325fbe38002f9d, type: 2}
   drawerMixer: {fileID: 243923967276569288, guid: 419d16a499e25894d985ae9ade00a711,

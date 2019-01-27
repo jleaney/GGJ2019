@@ -13,7 +13,9 @@ public class KeyController : MonoBehaviour {
     private void OnMouseDown()
 	{
 		audioSource = GetComponent<AudioSource>();
-		audioSource.PlayOneShot(audioClip);
+        audioSource.bypassEffects = true;
+        audioSource.PlayOneShot(audioClip);
+       
 		var locks = FindObjectsOfType<LockController>();
 		foreach (var l in locks)
 			l.Unlock();
