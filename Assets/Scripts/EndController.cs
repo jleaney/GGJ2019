@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
+using UnityEngine.Audio;
+using DG.Tweening;
 
 public class EndController : MonoBehaviour {
 
@@ -47,6 +49,8 @@ public class EndController : MonoBehaviour {
 
     [SerializeField]
     private GameObject wateringCan;
+
+    public AudioMixer musicMixer;
 	void Start () {
 		weatherButton.onClick.AddListener(NextPreset);
         postProcessing.profile.TryGetSettings(out vignetteLayer); // sets up the vignette layer / effect
@@ -97,6 +101,12 @@ public class EndController : MonoBehaviour {
         increaseVignette = true;
         wateringCan.SetActive(false);
         overlayCanvas.GameEnded = true;
+    }
+
+    public void FadeMusic()
+    {
+        musicMixer.DOSetFloat("masterVol", -80, 20);
+        musicMixer.DOSetFloat("musicVol", -80, 2);
     }
 
     private void TakeScreenshot()

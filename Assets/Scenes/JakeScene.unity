@@ -396,6 +396,11 @@ Prefab:
       objectReference: {fileID: 437883388}
     - target: {fileID: 114541550729057556, guid: 60980c6d27b40fd4494ed1dd97dc782f,
         type: 2}
+      propertyPath: weatherButton
+      value: 
+      objectReference: {fileID: 1501891383}
+    - target: {fileID: 114541550729057556, guid: 60980c6d27b40fd4494ed1dd97dc782f,
+        type: 2}
       propertyPath: endMenu
       value: 
       objectReference: {fileID: 437883389}
@@ -404,11 +409,6 @@ Prefab:
       propertyPath: wateringCan
       value: 
       objectReference: {fileID: 384821961}
-    - target: {fileID: 114541550729057556, guid: 60980c6d27b40fd4494ed1dd97dc782f,
-        type: 2}
-      propertyPath: weatherButton
-      value: 
-      objectReference: {fileID: 1501891383}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60980c6d27b40fd4494ed1dd97dc782f, type: 2}
   m_IsPrefabAsset: 0
@@ -930,6 +930,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114508575031543660, guid: 04cd10c679c4eb34284cbd1854372495,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 122598883}
     - target: {fileID: 1804773328067084, guid: 04cd10c679c4eb34284cbd1854372495, type: 2}
       propertyPath: m_Name
       value: OverlayCanvas (1)
