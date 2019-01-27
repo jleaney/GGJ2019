@@ -11242,6 +11242,7 @@ GameObject:
   - component: {fileID: 1145726967}
   - component: {fileID: 1145726969}
   - component: {fileID: 1145726968}
+  - component: {fileID: 1145726970}
   m_Layer: 0
   m_Name: Glass Pillar
   m_TagString: Untagged
@@ -11281,7 +11282,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 243965817757676114, guid: 419d16a499e25894d985ae9ade00a711,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -11384,6 +11385,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1145726970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1145726965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bce18535b911f9408f66783fc234c3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  domeSounds:
+  - {fileID: 8300000, guid: 740163ff32eba2b4fbcc2a5569312f90, type: 3}
+  - {fileID: 8300000, guid: f7a08a415de2b1d478735a1f9dcd8396, type: 3}
 --- !u!1 &1174772262
 GameObject:
   m_ObjectHideFlags: 0

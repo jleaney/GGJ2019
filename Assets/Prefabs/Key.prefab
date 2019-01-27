@@ -243,6 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockController: {fileID: 0}
   audioClip: {fileID: 8300000, guid: 8ec782f92127f104c90c36607f68f87c, type: 3}
+  musicMixer: {fileID: 24100000, guid: 419d16a499e25894d985ae9ade00a711, type: 2}
 --- !u!198 &198101623975651472
 ParticleSystem:
   m_ObjectHideFlags: 1

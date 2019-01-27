@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class DomeSounds : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    // Use this for initialization
+
+    public AudioClip[] domeSounds;
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void PlaySound(int sound)
+    {
+        GetComponent<AudioSource>().PlayOneShot(domeSounds[sound]);
+    }
 }
