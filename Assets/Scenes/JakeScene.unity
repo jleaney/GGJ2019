@@ -11461,6 +11461,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1a36ea10642d4f843a9c46ecd96acab3, type: 3}
   musicTracks:
   - {fileID: 8300000, guid: 08e26f8b5fea8654ea392b3ff33e5489, type: 3}
+  - {fileID: 8300000, guid: eb628a2bdb5f055439c474900d9d7d6b, type: 3}
   itemPickupSFX:
   - {fileID: 8300000, guid: 921da265f05a7b34197effcc8ca5fa4e, type: 3}
   - {fileID: 8300000, guid: 797e77a1969ce3f419d15be15a9804fb, type: 3}

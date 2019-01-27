@@ -47,8 +47,20 @@ public class AudioManager : MonoBehaviour
 	[SerializeField]
 	private AudioMixerGroup drawerMixer, itemMixer, growMixer, digMixer;
 
+    public AudioClip[] MusicTracks
+    {
+        get
+        {
+            return musicTracks;
+        }
 
-	void Start()
+        set
+        {
+            musicTracks = value;
+        }
+    }
+
+    void Start()
 	{
 		sfxTypes.Add("grow", growSFX);
 		sfxTypes.Add("dig", digSFX);
