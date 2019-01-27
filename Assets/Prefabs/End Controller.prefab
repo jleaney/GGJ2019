@@ -59,5 +59,7 @@ MonoBehaviour:
   overlayCanvas: {fileID: 0}
   takeScreenshotAtEnd: 0
   screenshotFadeTime: 3
+  weatherButton: {fileID: 0}
   endMenu: {fileID: 0}
   wateringCan: {fileID: 0}
+  musicMixer: {fileID: 24100000, guid: 419d16a499e25894d985ae9ade00a711, type: 2}
