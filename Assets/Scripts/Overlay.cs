@@ -9,6 +9,8 @@ public class Overlay : MonoBehaviour
 	public static Overlay instance;
     private bool menuOut = false;
 
+    private bool gameEnded = false;
+
 	private void Awake()
 	{
 		if (instance == null) instance = this;
@@ -17,7 +19,7 @@ public class Overlay : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameEnded)
         {
             if (!menuOut)
             {
@@ -67,6 +69,19 @@ public class Overlay : MonoBehaviour
         get
         {
             return _overlay;
+        }
+    }
+
+    public bool GameEnded
+    {
+        get
+        {
+            return gameEnded;
+        }
+
+        set
+        {
+            gameEnded = value;
         }
     }
 }

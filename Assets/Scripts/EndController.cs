@@ -88,6 +88,7 @@ public class EndController : MonoBehaviour {
         dome.GetComponent<Animator>().SetTrigger("close roof");
         increaseVignette = true;
         wateringCan.SetActive(false);
+        overlayCanvas.GameEnded = true;
     }
 
     private void TakeScreenshot()
@@ -112,10 +113,7 @@ public class EndController : MonoBehaviour {
             yield return new WaitForSeconds(0);
         }
 
-        Color black = new Color(0, 0, 0, 0);
-        overlayCanvas.FadeIn(3, black, 0.5f);
-
-        endMenu.SetActive(true);        
+        endMenu.GetComponent<Animator>().SetTrigger("open");     
     }
 }
 
