@@ -56,10 +56,6 @@ public class WeatherManager : MonoBehaviour
         GetComponent<AudioSource>().Play();
 	}
 
-	private void OnGUI()
-	{
-		if (preset != null) GUILayout.Label(preset.postProcessProfile.name);
-	}
 }
 
 [Serializable]
