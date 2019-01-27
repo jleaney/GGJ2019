@@ -9,9 +9,6 @@ public class DrawerController : MonoBehaviour {
     [SerializeField]
     private bool unlocked = false;
 
-    [SerializeField]
-    private AudioManager audioManager;
-
     public bool Unlocked
     {
         get
@@ -51,14 +48,14 @@ public class DrawerController : MonoBehaviour {
             {
                 open = true;
                 GetComponent<Animator>().SetTrigger("open");
-                audioManager.CreateSFX("open");
+                AudioManager.instance.CreateSFX("open");
             }
 
             else if (open)
             {
                 open = false;
                 GetComponent<Animator>().SetTrigger("close");
-                audioManager.CreateSFX("close");
+				AudioManager.instance.CreateSFX("close");
             }
         }
 

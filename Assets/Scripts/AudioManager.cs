@@ -26,6 +26,8 @@ public class AudioManager : MonoBehaviour
 	private AudioClip[] drawerOpenSFX;
 	[SerializeField]
 	private AudioClip[] drawerCloseSFX;
+	[SerializeField]
+	private AudioClip[] growSFX;
 
 	private Dictionary<string, AudioClip[]> sfxTypes = new Dictionary<string, AudioClip[]>();
 	private Dictionary<string, AudioMixerGroup> mixers = new Dictionary<string, AudioMixerGroup>();
@@ -45,7 +47,7 @@ public class AudioManager : MonoBehaviour
 
 	void Start()
 	{
-
+		sfxTypes.Add("grow", growSFX);
 		sfxTypes.Add("pickup", itemPickupSFX);
 		sfxTypes.Add("place", itemPlaceSFX);
 		sfxTypes.Add("open", drawerOpenSFX);
