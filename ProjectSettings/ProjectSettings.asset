@@ -154,7 +154,8 @@ PlayerSettings:
   resolutionScalingMode: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Standalone: com.TeamEggplant.Terrarium
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
@@ -263,7 +264,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 3f7dc7f0c39bc7d438f7efb6a0d3cab8, type: 3}
+      m_Icon: {fileID: 2800000, guid: a25f4331f5650904897d6553fcaeae9c, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

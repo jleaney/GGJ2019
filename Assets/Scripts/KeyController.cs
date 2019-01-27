@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class KeyController : MonoBehaviour {
 
@@ -51,7 +52,7 @@ public class KeyController : MonoBehaviour {
 		GetComponent<Animator>().SetTrigger("get key");
 
         AudioManager.instance.transform.GetChild(0).GetComponent<AudioSource>().clip = AudioManager.instance.MusicTracks[1];
-        musicMixer.SetFloat("musicVol", -14);
+        musicMixer.SetFloat("musicVol", -16); // vol of music track 2
         AudioManager.instance.transform.GetChild(0).GetComponent<AudioSource>().Play();
     }
 

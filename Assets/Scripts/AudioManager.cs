@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -11,7 +12,6 @@ public class AudioManager : MonoBehaviour
 	{
 		if (instance == null) instance = this;
 		else Destroy(gameObject);
-		DontDestroyOnLoad(gameObject);
 	}
 
 	[SerializeField]

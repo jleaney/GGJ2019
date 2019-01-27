@@ -54,7 +54,9 @@ public class EndController : MonoBehaviour {
 	void Start () {
 		weatherButton.onClick.AddListener(NextPreset);
         postProcessing.profile.TryGetSettings(out vignetteLayer); // sets up the vignette layer / effect
-    }
+		musicMixer.DOSetFloat("ambienceVol", -12, 2);
+		musicMixer.DOSetFloat("musicVol", -14, 2);
+	}
 
     private void FixedUpdate()
     {
@@ -105,7 +107,7 @@ public class EndController : MonoBehaviour {
 
     public void FadeMusic()
     {
-        musicMixer.DOSetFloat("masterVol", -80, 20);
+        musicMixer.DOSetFloat("ambienceVol", -80, 2);
         musicMixer.DOSetFloat("musicVol", -80, 2);
     }
 
