@@ -44,7 +44,7 @@ public class AudioManager : MonoBehaviour
 	private List<AudioSource> sfxList = new List<AudioSource>();
 
 	[SerializeField]
-	private AudioMixerGroup drawerMixer, itemMixer;
+	private AudioMixerGroup drawerMixer, itemMixer, growMixer;
 
 
 	void Start()
@@ -63,7 +63,7 @@ public class AudioManager : MonoBehaviour
 		mixers.Add("pickup", itemMixer);
 
 		mixers.Add("dig", itemMixer);
-		mixers.Add("grow", itemMixer);
+		mixers.Add("grow", growMixer);
 
 		music = transform.GetChild(0).GetComponent<AudioSource>();
 		ambience = transform.GetChild(1).GetComponent<AudioSource>();
