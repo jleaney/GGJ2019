@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.33154532, g: 0.60009414, b: 1.1557051, a: 1}
+  m_IndirectSpecularColor: {r: 0.24256504, g: 0.2619613, b: 0.28894186, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6308,30 +6308,35 @@ MonoBehaviour:
     exposure: 0.9
     particleEffect: Leaves
     uiButton: {fileID: 0}
+    sound: {fileID: 0}
   - postProcessProfile: {fileID: 11400000, guid: 5d1b54a947029fd4e92bc72a5e5e4ea4,
       type: 2}
     skyboxTint: {r: 0.654902, g: 0.81960785, b: 0.90588236, a: 1}
     exposure: 1
     particleEffect: None
     uiButton: {fileID: 0}
+    sound: {fileID: 0}
   - postProcessProfile: {fileID: 11400000, guid: 5b1ad3237cd2a344d93986eb60553baf,
       type: 2}
     skyboxTint: {r: 0.08627451, g: 0.1882353, b: 0.24705882, a: 1}
     exposure: 0.2
     particleEffect: Rain
     uiButton: {fileID: 0}
+    sound: {fileID: 0}
   - postProcessProfile: {fileID: 11400000, guid: 9a85898ae8bc29f48951b74325141d0d,
       type: 2}
     skyboxTint: {r: 0.79607844, g: 0.48235294, b: 0.65882355, a: 1}
     exposure: 0.65
     particleEffect: Blossoms
     uiButton: {fileID: 0}
+    sound: {fileID: 0}
   - postProcessProfile: {fileID: 11400000, guid: ce82f6751a00ea344b39b7b7e8aaafa0,
       type: 2}
     skyboxTint: {r: 0.09019608, g: 0.08627451, b: 0.11372549, a: 1}
     exposure: 0.1
     particleEffect: Fireflies
     uiButton: {fileID: 0}
+    sound: {fileID: 0}
   postProcessing: {fileID: 1174772264}
   particleManager: {fileID: 17721190}
 --- !u!4 &860315519
@@ -6358,10 +6363,10 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 243737046642457214, guid: 419d16a499e25894d985ae9ade00a711,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
