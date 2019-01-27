@@ -58,4 +58,5 @@ public class WeatherPreset
 	public Color skyboxTint;
 	public float exposure;
 	public string particleEffect;
+	public Sprite uiButton;
 }
