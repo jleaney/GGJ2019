@@ -72,12 +72,6 @@ public class EndController : MonoBehaviour {
         {
             StartCoroutine(GameEndUI());
         }
-
-        // TEMP
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            TriggerEnd();
-        }
     }
 
     public void TriggerEnd()
