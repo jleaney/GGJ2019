@@ -15,6 +15,9 @@ public class WeatherManager : MonoBehaviour
 	public ParticleManager particleManager;
 	private int currentPreset;
 
+    [SerializeField]
+
+
 	private void Start()
 	{
 		SetWeather(presets[0]);
@@ -43,6 +46,7 @@ public class WeatherManager : MonoBehaviour
 
 		postProcessing.profile = preset.postProcessProfile;
 		particleManager.SetParticle(preset.particleEffect);
+        GetComponent<AudioSource>().clip = preset.sound;
 	}
 
 	private void OnGUI()
@@ -59,4 +63,5 @@ public class WeatherPreset
 	public float exposure;
 	public string particleEffect;
 	public Sprite uiButton;
+    public AudioClip sound;
 }
