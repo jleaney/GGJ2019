@@ -55,7 +55,10 @@ public class WateringCan : Tool
 		waterIndicator.SetActive(false);
 		transform.DOMove(startPosition, 0.5f);
         notGrabbed = true;
-	}
+
+        notGrabbed = true;
+        transform.GetChild(0).GetComponent<Animator>().SetTrigger("let go");
+    }
 
 	private void OnMouseDrag()
 	{
