@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.2425651, g: 0.2619626, b: 0.28894228, a: 1}
+  m_IndirectSpecularColor: {r: 0.3235035, g: 0.5843945, b: 1.1579189, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -845,6 +845,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114619251542297264, guid: 04cd10c679c4eb34284cbd1854372495,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224683713017795910, guid: 04cd10c679c4eb34284cbd1854372495,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -1002,6 +1007,31 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114619251542297264, guid: 04cd10c679c4eb34284cbd1854372495,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114619251542297264, guid: 04cd10c679c4eb34284cbd1854372495,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114619251542297264, guid: 04cd10c679c4eb34284cbd1854372495,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 122598883}
+    - target: {fileID: 114619251542297264, guid: 04cd10c679c4eb34284cbd1854372495,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Screenshot
+      objectReference: {fileID: 0}
+    - target: {fileID: 114619251542297264, guid: 04cd10c679c4eb34284cbd1854372495,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04cd10c679c4eb34284cbd1854372495, type: 2}
@@ -6371,35 +6401,35 @@ MonoBehaviour:
     skyboxTint: {r: 0.31764707, g: 0.58431375, b: 0.98039216, a: 1}
     exposure: 0.9
     particleEffect: Leaves
-    uiButton: {fileID: 21300000, guid: ae4216dde3f77404dbfb2d5ff5c4da35, type: 3}
+    uiButton: {fileID: 21300000, guid: 4003068111864ba42ae6131867d717e7, type: 3}
     sound: {fileID: 8300000, guid: 1a36ea10642d4f843a9c46ecd96acab3, type: 3}
   - postProcessProfile: {fileID: 11400000, guid: 5d1b54a947029fd4e92bc72a5e5e4ea4,
       type: 2}
     skyboxTint: {r: 0.654902, g: 0.81960785, b: 0.90588236, a: 1}
     exposure: 1
     particleEffect: None
-    uiButton: {fileID: 21300000, guid: 0c53a92b537bdbd43bfd4df58ee03e19, type: 3}
+    uiButton: {fileID: 21300000, guid: ae4216dde3f77404dbfb2d5ff5c4da35, type: 3}
     sound: {fileID: 8300000, guid: 1a36ea10642d4f843a9c46ecd96acab3, type: 3}
   - postProcessProfile: {fileID: 11400000, guid: 5b1ad3237cd2a344d93986eb60553baf,
       type: 2}
     skyboxTint: {r: 0.08627451, g: 0.1882353, b: 0.24705882, a: 1}
     exposure: 0.2
     particleEffect: Rain
-    uiButton: {fileID: 21300000, guid: 8ead204b792fe4f4e97786e167e6a65e, type: 3}
+    uiButton: {fileID: 21300000, guid: 0c53a92b537bdbd43bfd4df58ee03e19, type: 3}
     sound: {fileID: 8300000, guid: 640696dbbc2513e48ba1b39ba6f67aaa, type: 3}
   - postProcessProfile: {fileID: 11400000, guid: 9a85898ae8bc29f48951b74325141d0d,
       type: 2}
     skyboxTint: {r: 0.79607844, g: 0.48235294, b: 0.65882355, a: 1}
     exposure: 0.65
     particleEffect: Blossoms
-    uiButton: {fileID: 21300000, guid: d1b2924c9039e9941ad438891ef5fa86, type: 3}
+    uiButton: {fileID: 21300000, guid: 8ead204b792fe4f4e97786e167e6a65e, type: 3}
     sound: {fileID: 8300000, guid: 1a36ea10642d4f843a9c46ecd96acab3, type: 3}
   - postProcessProfile: {fileID: 11400000, guid: ce82f6751a00ea344b39b7b7e8aaafa0,
       type: 2}
     skyboxTint: {r: 0.09019608, g: 0.08627451, b: 0.11372549, a: 1}
     exposure: 0.1
     particleEffect: Fireflies
-    uiButton: {fileID: 21300000, guid: 4003068111864ba42ae6131867d717e7, type: 3}
+    uiButton: {fileID: 21300000, guid: d1b2924c9039e9941ad438891ef5fa86, type: 3}
     sound: {fileID: 8300000, guid: 4b3db24eca730614c9227d5cde558980, type: 3}
   postProcessing: {fileID: 1174772264}
   particleManager: {fileID: 17721190}
@@ -21646,6 +21676,26 @@ Prefab:
     - target: {fileID: 1796921013222262, guid: efffd090f0d9d6148a48b1e6a7429dda, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198879528008524476, guid: efffd090f0d9d6148a48b1e6a7429dda,
+        type: 2}
+      propertyPath: TrailModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198879528008524476, guid: efffd090f0d9d6148a48b1e6a7429dda,
+        type: 2}
+      propertyPath: TrailModule.minVertexDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198879528008524476, guid: efffd090f0d9d6148a48b1e6a7429dda,
+        type: 2}
+      propertyPath: TrailModule.lifetime.scalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 199784841392592440, guid: efffd090f0d9d6148a48b1e6a7429dda,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efffd090f0d9d6148a48b1e6a7429dda, type: 2}

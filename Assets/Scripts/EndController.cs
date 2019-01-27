@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
@@ -81,6 +83,12 @@ public class EndController : MonoBehaviour {
 	{
 		var sprite = FindObjectOfType<WeatherManager>().NextWeather();
 		weatherButton.transform.GetChild(0).GetComponent<Image>().sprite = sprite;
+	}
+
+	void Screenshot()
+	{
+		var path = Path.Combine(Application.persistentDataPath, "terrarium" + DateTime.Now.ToString("yyMMddhhmmss") + ".png");
+		ScreenCapture.CaptureScreenshot(path);
 	}
 
     public void TriggerEnd()
