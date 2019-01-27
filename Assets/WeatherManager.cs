@@ -47,6 +47,7 @@ public class WeatherManager : MonoBehaviour
 		postProcessing.profile = preset.postProcessProfile;
 		particleManager.SetParticle(preset.particleEffect);
         GetComponent<AudioSource>().clip = preset.sound;
+        GetComponent<AudioSource>().Play();
 	}
 
 	private void OnGUI()
