@@ -12,7 +12,7 @@ public class WateringCan : Tool
 	[SerializeField] private AudioClip loopClip;
 
     private bool hoverPlaying = false;
-
+    private bool notGrabbed = true;
 
 	private void Start()
 	{
@@ -36,7 +36,10 @@ public class WateringCan : Tool
 		audioSource.PlayOneShot(startClip);
 		Invoke("PlayAudioLoop", startClip.length);
 		waterIndicator.SetActive(true);
-	}
+
+        notGrabbed = false;
+        transform.GetChild(0).GetComponent<Animator>().SetTrigger("grabbed");
+    }
 
 	void PlayAudioLoop()
 	{
@@ -51,6 +54,7 @@ public class WateringCan : Tool
 		particles.Stop(true);
 		waterIndicator.SetActive(false);
 		transform.DOMove(startPosition, 0.5f);
+        notGrabbed = true;
 	}
 
 	private void OnMouseDrag()
@@ -80,13 +84,15 @@ public class WateringCan : Tool
             transform.GetChild(0).GetComponent<Animator>().SetTrigger("hovering");
             hoverPlaying = true;
         }
-        
-
     }
 
     private void OnMouseExit()
     {
-        transform.GetChild(0).GetComponent<Animator>().SetTrigger("exit hover");
-        hoverPlaying = false;
+        if (notGrabbed)
+        {
+            transform.GetChild(0).GetComponent<Animator>().SetTrigger("exit hover");
+            hoverPlaying = false;
+        }
+        
     }
 }
