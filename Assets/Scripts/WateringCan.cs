@@ -11,6 +11,8 @@ public class WateringCan : Tool
 	[SerializeField] private AudioClip endClip;
 	[SerializeField] private AudioClip loopClip;
 
+    private bool hoverPlaying = false;
+
 
 	private void Start()
 	{
@@ -69,4 +71,22 @@ public class WateringCan : Tool
 	private bool _watering;
 	[SerializeField] private Vector3 _offset;
 	[SerializeField] private ParticleSystem particles;
+
+    // for hovering animation
+    private void OnMouseOver()
+    {
+        if (!hoverPlaying)
+        {
+            transform.GetChild(0).GetComponent<Animator>().SetTrigger("hovering");
+            hoverPlaying = true;
+        }
+        
+
+    }
+
+    private void OnMouseExit()
+    {
+        transform.GetChild(0).GetComponent<Animator>().SetTrigger("exit hover");
+        hoverPlaying = false;
+    }
 }
