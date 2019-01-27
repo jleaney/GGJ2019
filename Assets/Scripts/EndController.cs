@@ -72,12 +72,6 @@ public class EndController : MonoBehaviour {
         {
             StartCoroutine(GameEndUI());
         }
-
-        // TEMP
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            TriggerEnd();
-        }
     }
 
     public void TriggerEnd()
@@ -110,7 +104,7 @@ public class EndController : MonoBehaviour {
         }
 
         Color black = new Color(0, 0, 0, 0);
-        overlayCanvas.FadeIn(3, black, 0.9f);
+        overlayCanvas.FadeIn(3, black, 0.5f);
 
         endMenu.SetActive(true);        
     }
