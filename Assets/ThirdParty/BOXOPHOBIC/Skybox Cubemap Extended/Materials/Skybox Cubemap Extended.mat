@@ -81,7 +81,7 @@ Material:
     - _DstBlend: 0
     - _EnableFog: 1
     - _EnableRotation: 1
-    - _Exposure: 0.9
+    - _Exposure: 0.10000001
     - _FogFill: 0.475
     - _FogHeight: 0.621
     - _FogSmoothness: 1
@@ -104,4 +104,4 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Tex_HDR: {r: 1, g: 1, b: 0, a: 0}
-    - _TintColor: {r: 0.31764707, g: 0.58431375, b: 0.98039216, a: 1}
+    - _TintColor: {r: 0.09019608, g: 0.08627451, b: 0.11372548, a: 1}
