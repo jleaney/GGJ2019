@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Prefab Scene.unity
-    guid: 0c5b6dfb20d94e845a48c1fc713e0387
+    path: Assets/Scenes/JarisScene.unity
+    guid: 9b817f42ba5b8f8428bbe04a19826e3c
   m_configObjects: {}
