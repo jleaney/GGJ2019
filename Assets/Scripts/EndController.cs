@@ -110,7 +110,7 @@ public class EndController : MonoBehaviour {
         }
 
         Color black = new Color(0, 0, 0, 0);
-        overlayCanvas.FadeIn(3, black, 0.9f);
+        overlayCanvas.FadeIn(3, black, 0.5f);
 
         endMenu.SetActive(true);        
     }
