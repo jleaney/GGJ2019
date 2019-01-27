@@ -1352,6 +1352,80 @@ Prefab:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114889985793327284, guid: 04cd10c679c4eb34284cbd1854372495,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Nik Pantis (@NikPantis)
+
+        Alison Huang (@Drazillion)
+
+        Minh Tran (@mintbreakfast)
+
+        Matt Schenkel (@hxctropius)
+
+        Jaris Rener (@HowlJGames)
+
+        Jacob Leaney (@jacobjamesaus)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114415791681386026, guid: 04cd10c679c4eb34284cbd1854372495,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Skybox by BOXOPHOBIC
+
+
+
+        Special thanks to GGJ2019 Melbourne team - Giselle Rosman & volunteers.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 224730104569994006, guid: 04cd10c679c4eb34284cbd1854372495,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -328.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 224730104569994006, guid: 04cd10c679c4eb34284cbd1854372495,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 688.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 224730104569994006, guid: 04cd10c679c4eb34284cbd1854372495,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 272.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224730104569994006, guid: 04cd10c679c4eb34284cbd1854372495,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 310.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224936616335108338, guid: 04cd10c679c4eb34284cbd1854372495,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 310.20007
+      objectReference: {fileID: 0}
+    - target: {fileID: 224936616335108338, guid: 04cd10c679c4eb34284cbd1854372495,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 656.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224936616335108338, guid: 04cd10c679c4eb34284cbd1854372495,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 272.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114231677446588344, guid: 04cd10c679c4eb34284cbd1854372495,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Production/Design
+
+        Art
+
+        Art
+
+        Audio
+
+        Programming
+
+        Programming'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04cd10c679c4eb34284cbd1854372495, type: 2}
   m_IsPrefabAsset: 0
