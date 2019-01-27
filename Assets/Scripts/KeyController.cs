@@ -7,8 +7,13 @@ public class KeyController : MonoBehaviour {
     [SerializeField]
     private LockController lockController;
 
+	private AudioSource audioSource;
+	public AudioClip audioClip;
+
     private void OnMouseDown()
 	{
+		audioSource = GetComponent<AudioSource>();
+		audioSource.PlayOneShot(audioClip);
 		var locks = FindObjectsOfType<LockController>();
 		foreach (var l in locks)
 			l.Unlock();

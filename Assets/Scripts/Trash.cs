@@ -19,6 +19,7 @@ public class Trash : MonoBehaviour
 		}
 
 		Instantiate(ps, transform.position, Quaternion.identity);
+		AudioManager.instance.CreateSFX("dig");
 		Destroy(gameObject);
 	}
 }
