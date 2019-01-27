@@ -1,7 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.UI;
+using Button = UnityEngine.UI.Button;
 
 public class EndController : MonoBehaviour {
 
@@ -37,13 +38,15 @@ public class EndController : MonoBehaviour {
     private bool screenshotTaken = false;
     private bool fadeOutStarted = false;
 
+	public Button weatherButton;
+
     [SerializeField]
     private GameObject endMenu;
 
     [SerializeField]
     private GameObject wateringCan;
 	void Start () {
-
+		weatherButton.onClick.AddListener(NextPreset);
         postProcessing.profile.TryGetSettings(out vignetteLayer); // sets up the vignette layer / effect
     }
 
@@ -73,6 +76,12 @@ public class EndController : MonoBehaviour {
             StartCoroutine(GameEndUI());
         }
     }
+
+	public void NextPreset()
+	{
+		var sprite = FindObjectOfType<WeatherManager>().NextWeather();
+		weatherButton.transform.GetChild(0).GetComponent<Image>().sprite = sprite;
+	}
 
     public void TriggerEnd()
     {

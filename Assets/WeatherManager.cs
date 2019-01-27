@@ -24,11 +24,17 @@ public class WeatherManager : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.P))
 		{
-			currentPreset++;
-			if (currentPreset >= presets.Count) currentPreset = 0;
-			preset = presets[currentPreset];
-			SetWeather(preset);
+			
 		}
+	}
+
+	public Sprite NextWeather()
+	{
+		currentPreset++;
+		if (currentPreset >= presets.Count) currentPreset = 0;
+		preset = presets[currentPreset];
+		SetWeather(preset);
+		return preset.uiButton;
 	}
 
 	public void SetWeather(WeatherPreset preset)

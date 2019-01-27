@@ -404,6 +404,11 @@ Prefab:
       propertyPath: wateringCan
       value: 
       objectReference: {fileID: 384821961}
+    - target: {fileID: 114541550729057556, guid: 60980c6d27b40fd4494ed1dd97dc782f,
+        type: 2}
+      propertyPath: weatherButton
+      value: 
+      objectReference: {fileID: 1501891383}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60980c6d27b40fd4494ed1dd97dc782f, type: 2}
   m_IsPrefabAsset: 0
@@ -938,6 +943,10 @@ Prefab:
     - target: {fileID: 1804773328067084, guid: 04cd10c679c4eb34284cbd1854372495, type: 2}
       propertyPath: m_Name
       value: OverlayCanvas (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804773328067084, guid: 04cd10c679c4eb34284cbd1854372495, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04cd10c679c4eb34284cbd1854372495, type: 2}
@@ -6306,31 +6315,31 @@ MonoBehaviour:
     skyboxTint: {r: 0.31764707, g: 0.58431375, b: 0.98039216, a: 1}
     exposure: 0.9
     particleEffect: Leaves
-    uiButton: {fileID: 0}
+    uiButton: {fileID: 21300000, guid: ae4216dde3f77404dbfb2d5ff5c4da35, type: 3}
   - postProcessProfile: {fileID: 11400000, guid: 5d1b54a947029fd4e92bc72a5e5e4ea4,
       type: 2}
     skyboxTint: {r: 0.654902, g: 0.81960785, b: 0.90588236, a: 1}
     exposure: 1
     particleEffect: None
-    uiButton: {fileID: 0}
+    uiButton: {fileID: 21300000, guid: 0c53a92b537bdbd43bfd4df58ee03e19, type: 3}
   - postProcessProfile: {fileID: 11400000, guid: 5b1ad3237cd2a344d93986eb60553baf,
       type: 2}
     skyboxTint: {r: 0.08627451, g: 0.1882353, b: 0.24705882, a: 1}
     exposure: 0.2
     particleEffect: Rain
-    uiButton: {fileID: 0}
+    uiButton: {fileID: 21300000, guid: 8ead204b792fe4f4e97786e167e6a65e, type: 3}
   - postProcessProfile: {fileID: 11400000, guid: 9a85898ae8bc29f48951b74325141d0d,
       type: 2}
     skyboxTint: {r: 0.79607844, g: 0.48235294, b: 0.65882355, a: 1}
     exposure: 0.65
     particleEffect: Blossoms
-    uiButton: {fileID: 0}
+    uiButton: {fileID: 21300000, guid: d1b2924c9039e9941ad438891ef5fa86, type: 3}
   - postProcessProfile: {fileID: 11400000, guid: ce82f6751a00ea344b39b7b7e8aaafa0,
       type: 2}
     skyboxTint: {r: 0.09019608, g: 0.08627451, b: 0.11372549, a: 1}
     exposure: 0.1
     particleEffect: Fireflies
-    uiButton: {fileID: 0}
+    uiButton: {fileID: 21300000, guid: 4003068111864ba42ae6131867d717e7, type: 3}
   postProcessing: {fileID: 1174772264}
   particleManager: {fileID: 17721190}
 --- !u!4 &860315519
@@ -21583,6 +21592,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1501891383 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114794294107112142, guid: 04cd10c679c4eb34284cbd1854372495,
+    type: 2}
+  m_PrefabInternal: {fileID: 437883387}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1551856704
 GameObject:
   m_ObjectHideFlags: 0
