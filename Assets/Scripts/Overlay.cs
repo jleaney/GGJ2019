@@ -2,10 +2,12 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class Overlay : MonoBehaviour
 {
 	public static Overlay instance;
+    private bool menuOut = false;
 
 	private void Awake()
 	{
@@ -13,7 +15,36 @@ public class Overlay : MonoBehaviour
 		else throw new Exception("Duplicate instance of Overlay singleton.");
 	}
 
-	public void FadeOut(float duration)
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!menuOut)
+            {
+                menuOut = true;
+                transform.GetChild(2).GetComponent<Animator>().SetTrigger("open");
+                StartCoroutine(CloseMenu());
+            }
+
+            else
+            {
+                menuOut = false;
+                transform.GetChild(2).GetComponent<Animator>().SetTrigger("close");
+            }
+        }
+    }
+    private IEnumerator CloseMenu()
+    {
+        yield return new WaitForSeconds(10);
+
+        if (menuOut)
+        {
+            //transform.GetChild(2).GetComponent<Animator>().SetTrigger("close");
+        }
+        
+    }
+
+    public void FadeOut(float duration)
 	{
 		_overlay.DOFade(0.0f, duration);
 	}
