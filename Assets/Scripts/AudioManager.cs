@@ -8,6 +8,9 @@ public class AudioManager : MonoBehaviour
 {
 	public static AudioManager instance;
 
+    [SerializeField]
+    private float pitchVariation;
+
 	private void Awake()
 	{
 		if (instance == null) instance = this;
@@ -84,7 +87,7 @@ public class AudioManager : MonoBehaviour
 		music.Play();
 	}
 
-	public AudioSource CreateSFX(string type, bool looping)
+	public AudioSource CreateSFX(string type, bool looping, bool randomizePitch)
 	{
 		AudioSource newSFX = Instantiate(sfx, transform);
 
@@ -92,6 +95,7 @@ public class AudioManager : MonoBehaviour
 
 		newSFX.loop = looping;
 		newSFX.outputAudioMixerGroup = mixers[type];
+        newSFX.pitch = Random.Range(newSFX.pitch - pitchVariation, newSFX.pitch + pitchVariation);
 		newSFX.Play();
 
 		sfxList.Add(newSFX);
@@ -100,7 +104,7 @@ public class AudioManager : MonoBehaviour
 
 	public void CreateSFX(string type)
 	{
-		CreateSFX(type, false);
+		CreateSFX(type, false, true);
 	}
 
 	// destroys SFX after it plays
