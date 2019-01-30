@@ -18,6 +18,7 @@ public class Plant : Pickup
     private void Start()
 	{
         transform.GetChild(0).gameObject.SetActive(false); // ensures fully grown state is off
+        OnRelease += () => Destroy(transform.parent.gameObject);
     }
 
     private void Update()

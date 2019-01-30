@@ -5,7 +5,8 @@ public class DecorativeObject : Pickup
 	private void Start()
 	{
 		OnPlant += Expand;
-	}
+        OnRelease += () => Destroy(gameObject);
+    }
 
 	private void Expand()
 	{

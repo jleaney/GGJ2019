@@ -1,21 +1,26 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
-	public GameObject prefab;
+    public GameObject prefab;
 
-	private Pickup spawn;
+    private Pickup spawn;
 
-	private void Start()
-	{
-		SpawnNew();
-	}
+    public bool faceEast;
 
-	public void SpawnNew()
-	{
-		spawn = Instantiate(prefab, transform.position, prefab.transform.rotation).GetComponentInChildren<Pickup>();
-		spawn.transform.parent.SetParent(transform.parent);
-		spawn.transform.localScale *= 0.5f;
-		spawn.OnPlant += SpawnNew;
-	}
+    private void Start()
+    {
+        SpawnNew();
+    }
+
+    public void SpawnNew()
+    {
+        spawn = Instantiate(prefab, transform.position, Quaternion.Euler(90, faceEast ? 0 : 90, 0)).GetComponentInChildren<Pickup>();
+        spawn.startSize = spawn.transform.localScale;
+        spawn.transform.localScale *= 1.25f;
+        spawn.transform.parent.SetParent(transform.parent);
+        spawn.OnPlant += SpawnNew;
+        spawn.OnRelease += SpawnNew;
+    }
 }
