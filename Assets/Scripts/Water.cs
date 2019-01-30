@@ -8,6 +8,7 @@ public class Water : MonoBehaviour
 	{
 		if (!other.gameObject.GetComponentInParent<Plant>()) return;
 		if (other.gameObject.GetComponentInParent<Plant>().isGrown) return;
+		if (other.gameObject.GetComponentInParent<Plant>().CanPickup) return;
 		other.gameObject.GetComponentInParent<Plant>().transform.GetChild(2).GetChild(0).GetComponent<Animator>().SetTrigger("complete");
 		other.gameObject.GetComponentInParent<Plant>().isGrown = true;
 	}
