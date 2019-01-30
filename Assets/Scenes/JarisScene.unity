@@ -11931,7 +11931,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2ec4abfffb395a24e9a86ff95307c2de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.014821909
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2ec4abfffb395a24e9a86ff95307c2de, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11961,6 +11961,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ee420aa7de1cbc543bca1e126f40f071, type: 2}
+    - target: {fileID: 400000, guid: 2ec4abfffb395a24e9a86ff95307c2de, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.9019
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ec4abfffb395a24e9a86ff95307c2de, type: 3}
   m_IsPrefabAsset: 0
@@ -12068,7 +12072,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1145726965}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.4910002, z: 0}
+  m_LocalPosition: {x: 0, y: 1.73, z: 0}
   m_LocalScale: {x: 1.1041002, y: 0.25878415, z: 1.1041002}
   m_Children:
   - {fileID: 995978559}
@@ -12093,7 +12097,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 243965817757676114, guid: 419d16a499e25894d985ae9ade00a711,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -12208,8 +12212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   domeSounds:
-  - {fileID: 8300000, guid: 740163ff32eba2b4fbcc2a5569312f90, type: 3}
-  - {fileID: 8300000, guid: f7a08a415de2b1d478735a1f9dcd8396, type: 3}
+  - {fileID: 8300000, guid: 98b1062ecd60ef1438fb40aa774f3e1b, type: 3}
+  - {fileID: 8300000, guid: 85a153c9591314a4ea0ff4b2d6e1f552, type: 3}
 --- !u!1 &1163408980
 GameObject:
   m_ObjectHideFlags: 0
@@ -12444,7 +12448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c1eb2a8ecbe2c144a10a91c8ba61415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pitchMinMax: 0.1
+  pitchVariation: 0
   ambientSounds:
   - {fileID: 8300000, guid: 99c1ae9ff63a0214a969add5fbb9d8e6, type: 3}
   - {fileID: 8300000, guid: 1a36ea10642d4f843a9c46ecd96acab3, type: 3}
@@ -28906,7 +28910,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2088453364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.076, z: 0}
+  m_LocalPosition: {x: 0, y: 0.025, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1145726966}
