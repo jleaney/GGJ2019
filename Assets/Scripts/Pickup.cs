@@ -29,7 +29,7 @@ public class Pickup : MonoBehaviour
 
     public void PickedUp()
     {
-        if(OnPickup != null) OnPickup.Invoke();
+        if (OnPickup != null) OnPickup.Invoke();
         ResetScale();
     }
 

@@ -4,8 +4,7 @@ using DG.Tweening;
 
 public class Plant : Pickup
 {
-    [SerializeField]
-    private Material plant;
+    [SerializeField] public Material plant;
     private Material seedling;
 	public bool isGrown;
 
@@ -15,10 +14,13 @@ public class Plant : Pickup
     [SerializeField]
     private GameObject[] grassCombos;
 
+    public bool IsHeld { get; set; }
+
     private void Start()
 	{
         transform.GetChild(0).gameObject.SetActive(false); // ensures fully grown state is off
         OnRelease += () => Destroy(transform.parent.gameObject);
+        OnPickup += () => IsHeld = true;
     }
 
     private void Update()
@@ -50,10 +52,10 @@ public class Plant : Pickup
     {
         transform.GetChild(0).gameObject.SetActive(true);
         transform.GetComponentInChildren<Renderer>().material = plant;
-		AudioManager.instance.CreateSFX("grow");
+        AudioManager.instance.CreateSFX("grow");
         SetRandomSize();
 
-        SetGrassCombo();
+        //SetGrassCombo(); //TODO was crashing the game lol
 
         transform.GetComponentInChildren<ParticleSystem>().Play();
     }

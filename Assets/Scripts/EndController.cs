@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
@@ -8,7 +12,8 @@ using Button = UnityEngine.UI.Button;
 using UnityEngine.Audio;
 using DG.Tweening;
 
-public class EndController : MonoBehaviour {
+public class EndController : MonoBehaviour
+{
 
     [SerializeField]
     private GameObject dome;
@@ -42,7 +47,7 @@ public class EndController : MonoBehaviour {
     private bool screenshotTaken = false;
     private bool fadeOutStarted = false;
 
-	public Button weatherButton;
+    public Button weatherButton;
 
     [SerializeField]
     private GameObject endMenu;
@@ -51,12 +56,19 @@ public class EndController : MonoBehaviour {
     private GameObject wateringCan;
 
     public AudioMixer musicMixer;
-	void Start () {
-		weatherButton.onClick.AddListener(NextPreset);
+    void Start()
+    {
+        weatherButton.onClick.AddListener(NextPreset);
         postProcessing.profile.TryGetSettings(out vignetteLayer); // sets up the vignette layer / effect
-		musicMixer.DOSetFloat("ambienceVol", -12, 2);
-		musicMixer.DOSetFloat("musicVol", -14, 2);
-	}
+        musicMixer.DOSetFloat("ambienceVol", -12, 2);
+        musicMixer.DOSetFloat("musicVol", -14, 2);
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.P))
+            Screenshot();
+    }
 
     private void FixedUpdate()
     {
@@ -85,17 +97,52 @@ public class EndController : MonoBehaviour {
         }
     }
 
-	public void NextPreset()
-	{
-		var sprite = FindObjectOfType<WeatherManager>().NextWeather();
-		weatherButton.transform.GetChild(0).GetComponent<Image>().sprite = sprite;
-	}
+    public void NextPreset()
+    {
+        var sprite = FindObjectOfType<WeatherManager>().NextWeather();
+        weatherButton.transform.GetChild(0).GetComponent<Image>().sprite = sprite;
+    }
 
-	void Screenshot()
-	{
-		var path = Path.Combine(Application.persistentDataPath, "terrarium" + DateTime.Now.ToString("yyMMddhhmmss") + ".png");
-		ScreenCapture.CaptureScreenshot(path);
-	}
+    void Screenshot()
+    {
+        var path = Application.persistentDataPath + $"/terrarium{DateTime.Now:yyMMddhhmmss}.png";
+        
+        overlayCanvas.gameObject.SetActive(false);
+        wateringCan.SetActive(false);
+        ScreenCapture.CaptureScreenshot(path);
+
+        StartCoroutine(TweetWhenFinished(path));
+    }
+
+    private IEnumerator TweetWhenFinished(string path)
+    {
+        float timer = 10;
+        while (!File.Exists(path))
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0) yield break;
+            yield return null;
+        }
+        
+        const string ConsumerKey = "icdsL2UA6daJcvuZNNoXY4Zkc",
+            ConsumerKeySecret = "FAi9LwSWJYPZSw5ewwIAKjvhfjFeO0wDbTax4KKPGzV5Ns7BKY",
+            AccessToken = "1089499928781414401-sien8RJ3ybIQJTpDKlAHkfNd1aGflu",
+            AccessTokenSecret = "ztqnkydk9fxnHK9GZHEulJJcqruBiMouCpgLydRqZeXCC";
+
+        var twitter = new Twitter(
+            ConsumerKey,
+            ConsumerKeySecret,
+            AccessToken,
+            AccessTokenSecret
+        );
+
+        // 1) if we want to upload image and post it together with text
+
+        overlayCanvas.gameObject.SetActive(true);
+        wateringCan.SetActive(true);
+        string response = twitter.PublishToTwitter("#MyTerrarium", path);
+        Console.WriteLine(response);
+    }
 
     public void TriggerEnd()
     {
@@ -133,7 +180,7 @@ public class EndController : MonoBehaviour {
             yield return new WaitForSeconds(0);
         }
 
-        endMenu.GetComponent<Animator>().SetTrigger("open");     
+        endMenu.GetComponent<Animator>().SetTrigger("open");
     }
 }
 
