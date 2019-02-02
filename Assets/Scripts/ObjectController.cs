@@ -107,7 +107,6 @@ public class ObjectController : MonoBehaviour
             float enter;
             if (plane.Raycast(ray, out enter))
             {
-                _tileHighlighter.SetActive(true);
                 Vector3 pos = ray.GetPoint(enter);
                 _gridPos = _grid.SnapToGrid(pos);
                 Debug.DrawRay(_gridPos, Vector3.up, Color.magenta);
@@ -115,19 +114,36 @@ public class ObjectController : MonoBehaviour
                 Vector2Int positionToIndex = _grid.PositionToIndex(_gridPos);
                 if (!_grid.IsOccupied(positionToIndex))
                 {
-                    _tileHighlighter.GetComponent<MeshRenderer>().material.color = new Color(0.57f, 1f, 0f, 0.3f);
-                    _targetPos = new Vector3(_gridPos.x + _offset.x, _heldItem.yOffset, _gridPos.z + _offset.z);
+                    if ((_heldItem is Grass))
+                    {
+                        _targetPos = pos;
+                    }
+                    else
+                    {
+                        _tileHighlighter.SetActive(true);
+                        _tileHighlighter.GetComponent<MeshRenderer>().material.color = new Color(0.57f, 1f, 0f, 0.3f);
+                        _targetPos = new Vector3(_gridPos.x + _offset.x, _heldItem.yOffset, _gridPos.z + _offset.z);
+                    }
                     Debug.DrawRay(_targetPos, Vector3.up, Color.blue);
                 }
                 else
                 {
-                    _tileHighlighter.GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0.23f, 0.3f);
+                    if ((_heldItem is Grass))
+                    {
+                        _targetPos = pos;
+                        _tileHighlighter.SetActive(false);
+                    }
+                    else
+                    {
+                        _tileHighlighter.SetActive(true);
+                        _tileHighlighter.GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0.23f, 0.3f);
+                    }
+
                 }
 
                 _heldItem.transform.position =
                     Vector3.Lerp(_heldItem.transform.position, _targetPos, Time.smoothDeltaTime * 7.5f);
 
-                _tileHighlighter.SetActive(true);
                 _tileHighlighter.transform.position =
                     new Vector3(_gridPos.x, _gridPos.y + 0.01f, _gridPos.z);
             }

@@ -11,6 +11,7 @@ using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 using UnityEngine.Audio;
 using DG.Tweening;
+using TMPro;
 
 public class EndController : MonoBehaviour
 {
@@ -35,6 +36,8 @@ public class EndController : MonoBehaviour
     [SerializeField] // serialized for testing only
     private bool increaseVignette;
 
+    public TMP_InputField nameInput;
+
     [SerializeField]
     private Overlay overlayCanvas;
 
@@ -48,6 +51,7 @@ public class EndController : MonoBehaviour
     private bool fadeOutStarted = false;
 
     public Button weatherButton;
+    public Button shareButton;
 
     [SerializeField]
     private GameObject endMenu;
@@ -58,6 +62,7 @@ public class EndController : MonoBehaviour
     public AudioMixer musicMixer;
     void Start()
     {
+        nameInput.gameObject.SetActive(false);
         weatherButton.onClick.AddListener(NextPreset);
         postProcessing.profile.TryGetSettings(out vignetteLayer); // sets up the vignette layer / effect
         musicMixer.DOSetFloat("ambienceVol", -12, 2);
@@ -103,18 +108,35 @@ public class EndController : MonoBehaviour
         weatherButton.transform.GetChild(0).GetComponent<Image>().sprite = sprite;
     }
 
+    private bool nameDone = false;
     void Screenshot()
     {
+        if (!nameDone)
+        {
+            nameInput.gameObject.SetActive(true);
+            nameDone = true;
+        }
+        else
+        {
+            nameInput.gameObject.SetActive(false);
+            shareButton.gameObject.SetActive(false);
+            CaptureScreenshot();
+        }
+    }
+
+    private void CaptureScreenshot()
+    {
         var path = Application.persistentDataPath + $"/terrarium{DateTime.Now:yyMMddhhmmss}.png";
-        
+
         overlayCanvas.gameObject.SetActive(false);
         wateringCan.SetActive(false);
         ScreenCapture.CaptureScreenshot(path);
 
-        StartCoroutine(TweetWhenFinished(path));
+        string message = nameInput.text;
+        StartCoroutine(TweetWhenFinished(path, message));
     }
 
-    private IEnumerator TweetWhenFinished(string path)
+    private IEnumerator TweetWhenFinished(string path, string message)
     {
         float timer = 10;
         while (!File.Exists(path))
@@ -140,7 +162,7 @@ public class EndController : MonoBehaviour
 
         overlayCanvas.gameObject.SetActive(true);
         wateringCan.SetActive(true);
-        string response = twitter.PublishToTwitter("#MyTerrarium", path);
+        string response = twitter.PublishToTwitter($"{message} #MyTerrarium", path);
         Console.WriteLine(response);
     }
 

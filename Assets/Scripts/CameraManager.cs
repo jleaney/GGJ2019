@@ -17,10 +17,10 @@ public class CameraManager : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Q))
-			transform.Rotate(transform.up, -90);
+		//if (Input.GetKeyDown(KeyCode.Q))
+		//	transform.Rotate(transform.up, -90);
 
-		if (Input.GetKeyDown(KeyCode.E))
-			transform.Rotate(transform.up, 90);
+		//if (Input.GetKeyDown(KeyCode.E))
+		//	transform.Rotate(transform.up, 90);
 	}
 }

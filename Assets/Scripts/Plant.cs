@@ -21,6 +21,7 @@ public class Plant : Pickup
         transform.GetChild(0).gameObject.SetActive(false); // ensures fully grown state is off
         OnRelease += () => Destroy(transform.parent.gameObject);
         OnPickup += () => IsHeld = true;
+        //OnPlant += () => GetComponentInChildren<Collider>().enabled = false;
     }
 
     private void Update()
