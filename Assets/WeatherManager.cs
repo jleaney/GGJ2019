@@ -23,14 +23,6 @@ public class WeatherManager : MonoBehaviour
 		SetWeather(presets[0]);
 	}
 
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.P))
-		{
-			
-		}
-	}
-
 	public Sprite NextWeather()
 	{
 		currentPreset++;

@@ -69,12 +69,6 @@ public class EndController : MonoBehaviour
         musicMixer.DOSetFloat("musicVol", -14, 2);
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.P))
-            Screenshot();
-    }
-
     private void FixedUpdate()
     {
         if (increaseVignette)

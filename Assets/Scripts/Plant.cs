@@ -24,14 +24,6 @@ public class Plant : Pickup
         //OnPlant += () => GetComponentInChildren<Collider>().enabled = false;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            PlantSeedling();
-        }
-    }
-
     private void SetRandomSize()
     {
         float size = Random.Range(scaleMin, scaleMax);	
